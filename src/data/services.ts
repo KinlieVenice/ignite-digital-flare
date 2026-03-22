@@ -61,7 +61,7 @@ export const services = [
   {
     slug: "web-applications",
     icon: Code2,
-    title: "Custom Web Applications",
+    title: "Web Applications",
     tagline: "Systems built to support and scale operations.",
     description:
       "Web applications designed for performance, reliability, and growth. Built for internal tools, dashboards, or customer-facing platforms.",

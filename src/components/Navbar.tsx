@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Works", href: "#works" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -19,7 +20,7 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-border bg-background/80"
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        <a href="#" className="font-display text-2xl font-bold tracking-tight">
+        <a href="/#" className="font-display text-2xl font-bold tracking-tight">
           <span className="text-foreground">NEX</span>
           <span className="text-gradient-fire">FLARE</span>
         </a>

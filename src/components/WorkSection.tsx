@@ -8,7 +8,7 @@ const WorkSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="work" className="py-32 relative">
+    <section id="works" className="py-32 relative">
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-ember/5 blur-[150px]" />
 
       <div className="container mx-auto px-6 relative z-10" ref={ref}>

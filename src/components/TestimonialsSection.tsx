@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
 
   return (
     <section id="testimonials" className="py-32 relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[150px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] rounded-full bg-primary/5 blur-[150px] sm:w-[500px] sm:h-[500px]" />
 
       <div className="container mx-auto px-6 relative z-10" ref={ref}>
         <motion.div

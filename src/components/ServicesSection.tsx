@@ -10,7 +10,7 @@ const ServicesSection = () => {
 
   return (
     <section id="services" className="py-32 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[150px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full sm:w-[500px] h-[500px] rounded-full bg-primary/5 blur-[150px]" />
 
       <div className="container mx-auto px-6 relative z-10" ref={ref}>
         <motion.div

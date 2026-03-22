@@ -4,6 +4,7 @@ import { ArrowLeft, ExternalLink, Check } from "lucide-react";
 import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useEffect } from "react";
 
 const WorkDetail = () => {
   const { slug } = useParams();
@@ -22,6 +23,11 @@ const WorkDetail = () => {
 
   const Icon = project.icon;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+  
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -30,7 +36,7 @@ const WorkDetail = () => {
       <section className="pt-24">
         <div className="container mx-auto px-6">
           <Link
-            to="/"
+            to="/#works"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-flame transition-colors mb-6 mt-8"
           >
             <ArrowLeft size={16} />
@@ -46,13 +52,13 @@ const WorkDetail = () => {
             <img
               src={project.image}
               alt={`${project.title} — ${project.industry}`}
-              className="w-full aspect-[21/9] object-cover object-top"
+              className="w-full h-80 sm:aspect-[21/9] object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
 
             {/* Overlay info */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10">
-              <div className="flex items-center gap-3 mb-4">
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-10">
+              <div className="flex sm:items-center gap-3 mb-4 flex-col items-start sm:flex-row">
                 <span className="text-[11px] font-semibold tracking-wider uppercase text-flame bg-flame/15 backdrop-blur-sm px-3 py-1 rounded-full">
                   {project.industry}
                 </span>
@@ -64,7 +70,7 @@ const WorkDetail = () => {
               <h1 className="font-display text-3xl sm:text-5xl font-bold tracking-tight">
                 {project.title}
               </h1>
-              <p className="text-flame text-lg font-medium mt-2">{project.tagline}</p>
+              <p className="text-flame sm:text-lg font-medium mt-2">{project.tagline}</p>
             </div>
           </motion.div>
         </div>
@@ -158,7 +164,7 @@ const WorkDetail = () => {
             className="text-center bg-card border border-border rounded-2xl p-12 max-w-3xl mx-auto"
           >
             <h2 className="font-display text-2xl sm:text-3xl font-bold mb-4">
-              Want results like these?
+              Ready to Ignite?
             </h2>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto text-sm">
               Let's discuss how we can build a solution that drives real outcomes for your business.
@@ -167,7 +173,7 @@ const WorkDetail = () => {
               href="/#contact"
               className="inline-flex items-center gap-2 bg-gradient-fire text-primary-foreground px-8 py-3 rounded-xl font-semibold text-sm shadow-glow hover:shadow-fire transition-all duration-300"
             >
-              Start a Conversation
+              Get in Touch
             </a>
           </motion.div>
         </div>

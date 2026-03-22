@@ -4,6 +4,8 @@ import { ArrowLeft, Check, Star } from "lucide-react";
 import { services } from "@/data/services";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useEffect } from "react";
+import ContactSection from "@/components/ContactSection";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -22,16 +24,20 @@ const ServiceDetail = () => {
 
   const Icon = service.icon;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       {/* Hero */}
       <section className="pt-32 pb-20 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-primary/5 blur-[150px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full sm:w-[600px] h-[400px] rounded-full bg-primary/5 blur-[150px]" />
         <div className="container mx-auto px-6 relative z-10">
           <Link
-            to="/"
+            to="/#services"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-flame transition-colors mb-8"
           >
             <ArrowLeft size={16} />
@@ -42,15 +48,16 @@ const ServiceDetail = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="grid justify-items-center"
           >
             <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.accent} flex items-center justify-center shadow-glow mb-6`}>
               <Icon size={28} className="text-primary-foreground" />
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+            <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight mb-4  text-center">
               {service.title}
             </h1>
-            <p className="text-flame text-lg font-medium mb-6">{service.tagline}</p>
-            <p className="text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="text-flame text-lg font-medium mb-6  text-center">{service.tagline}</p>
+            <p className="text-muted-foreground max-w-2xl leading-relaxed text-center">
               {service.description}
             </p>
           </motion.div>
@@ -65,6 +72,7 @@ const ServiceDetail = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="grid justify-items-center"
           >
             <h2 className="font-display text-2xl sm:text-3xl font-bold mb-10">
               What's <span className="text-gradient-fire">Included</span>
@@ -120,20 +128,19 @@ const ServiceDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className={`relative bg-card border rounded-2xl p-8 transition-all duration-500 ${
-                  pkg.popular
+                className={`relative bg-card border rounded-2xl p-8 transition-all duration-500 ${pkg.popular
                     ? "border-flame/50 shadow-glow scale-[1.02]"
                     : "border-border hover:border-primary/30"
-                }`}
+                  }`}
               >
-                {pkg.popular && (
+                {/* {pkg.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className="bg-gradient-fire text-primary-foreground text-[11px] font-bold tracking-wider uppercase px-4 py-1.5 rounded-full flex items-center gap-1">
                       <Star size={10} fill="currentColor" />
                       Most Popular
                     </span>
                   </div>
-                )}
+                )} */}
 
                 <div className="mb-6">
                   <h3 className="font-display text-lg font-semibold mb-2">{pkg.name}</h3>
@@ -159,7 +166,16 @@ const ServiceDetail = () => {
                   ))}
                 </ul>
 
-                <a
+
+                <span
+                  className={`block text-center py-3 rounded-xl font-semibold text-sm transition-all duration-300 ${pkg.popular
+                      ? "bg-gradient-fire text-primary-foreground shadow-glow hover:shadow-fire"
+                      : "bg-secondary text-secondary-foreground"
+                    }`}
+                >
+                </span>
+
+                {/* <a
                   href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
@@ -172,7 +188,7 @@ const ServiceDetail = () => {
                   }`}
                 >
                   {pkg.price === "Custom" ? "Contact Us" : "Get Started"}
-                </a>
+                </a> */}
               </motion.div>
             ))}
           </div>
@@ -189,7 +205,7 @@ const ServiceDetail = () => {
             className="text-center bg-card border border-border rounded-2xl p-12 max-w-3xl mx-auto"
           >
             <h2 className="font-display text-2xl sm:text-3xl font-bold mb-4">
-              Not sure which package is right?
+              Ready to Ignite?
             </h2>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto text-sm">
               Let's talk about your needs. We'll recommend the best solution for your business — no commitment required.
@@ -198,12 +214,12 @@ const ServiceDetail = () => {
               href="/#contact"
               className="inline-flex items-center gap-2 bg-gradient-fire text-primary-foreground px-8 py-3 rounded-xl font-semibold text-sm shadow-glow hover:shadow-fire transition-all duration-300"
             >
-              Let's Talk
+              Get in Touch
             </a>
           </motion.div>
         </div>
       </section>
-
+      
       <Footer />
     </div>
   );

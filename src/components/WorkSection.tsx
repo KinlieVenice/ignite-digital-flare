@@ -49,18 +49,21 @@ const WorkSection = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
 
-                    <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-background/80 backdrop-blur-sm border border-border rounded-full px-3 py-1.5">
-                      <Icon size={14} className="text-flame" />
-                      <span className="text-[11px] font-bold text-foreground tracking-wide">
-                        {project.result}
-                      </span>
+                    <div className="absolute top-4 flex justify-between w-full px-4 flex-wrap">
+                      <div className="flex items-center gap-1.5 bg-background/80 backdrop-blur-sm border border-border rounded-full px-3 py-1.5">
+                        <Icon size={14} className="text-flame" />
+                        <span className="text-[11px] font-bold text-foreground tracking-wide">
+                          {project.result}
+                        </span>
+                      </div>
+
+                      <div className="">
+                        <span className="text-[11px] font-semibold tracking-wider uppercase text-flame bg-flame/15 backdrop-blur-sm px-3 py-1 rounded-full">
+                          {project.industry}
+                        </span>
+                      </div>
                     </div>
 
-                    <div className="absolute top-4 left-4">
-                      <span className="text-[11px] font-semibold tracking-wider uppercase text-flame bg-flame/15 backdrop-blur-sm px-3 py-1 rounded-full">
-                        {project.industry}
-                      </span>
-                    </div>
                   </div>
 
                   <div className="p-6">

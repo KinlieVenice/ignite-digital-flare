@@ -88,6 +88,20 @@ const WorkSection = () => {
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <Link
+            to="/works"
+            className="inline-flex items-center gap-2 bg-card border border-border px-8 py-3 rounded-xl text-sm font-semibold text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-300"
+          >
+            See More Projects →
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

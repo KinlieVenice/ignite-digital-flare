@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound.tsx";
 import ServiceDetail from "./pages/ServiceDetail.tsx";
 import WorkDetail from "./pages/WorkDetail.tsx";
 import Works from "./pages/Works.tsx";
+import Terms from "./pages/Terms.tsx";
+import FAQ from "./pages/FAQ.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();

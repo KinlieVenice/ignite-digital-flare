@@ -85,7 +85,7 @@ const Works = () => {
             {filtered.map((project, i) => {
               const Icon = project.icon;
               return (
-                <Link key={project.slug} to={`/work/${project.slug}`}>
+                <Link key={project.slug} to={`/works/${project.slug}`} state={{ from: 'works' }}>
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}

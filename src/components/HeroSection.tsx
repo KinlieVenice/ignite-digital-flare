@@ -26,7 +26,7 @@ const HeroSection = () => {
         <img
           src={isLight ? heroBgLight : heroBg}
           alt=""
-          className="w-full h-full object-cover opacity-40"
+          className={`w-full h-full object-cover ${isLight ? "opacity-100" : "opacity-40"}`}
           width={1920}
           height={1080}
         />
@@ -88,7 +88,7 @@ const HeroSection = () => {
           </a>
           <a
             href="#about"
-            className="px-8 py-3.5 rounded-lg font-semibold text-sm border border-border text-foreground hover:bg-secondary transition-colors"
+            className="px-8 py-3.5 rounded-lg font-semibold text-sm border border-border text-foreground hover:bg-secondary transition-colors duration-700"
           >
             Learn More
           </a>

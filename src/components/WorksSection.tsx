@@ -34,7 +34,7 @@ const WorkSection = () => {
           {projects.map((project, i) => {
             const Icon = project.icon;
             return (
-              <Link key={project.slug} to={`/work/${project.slug}`}>
+              <Link key={project.slug} to={`/works/${project.slug}`} state={{ from: 'works-section' }}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}

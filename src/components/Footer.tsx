@@ -5,15 +5,15 @@ const Footer = () => {
   return (
     <footer className="border-t border-border pt-20 pb-10 bg-card/30">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <div className="grid grid-cols-1 justify-items-center md:grid-cols-3 gap-12 mb-16">
           
           {/* Column 1: Branding & Bio */}
-          <div className="space-y-6">
+          <div className="space-y-6 grid justify-items-center md:justify-items-start">
             <div className="font-display text-2xl font-bold tracking-tight">
               <span className="text-foreground">NEX</span>
               <span className="text-gradient-fire">FLARE</span>
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs text-center md:text-left">
               Igniting growth through high-performance digital solutions. 
               We turn your vision into a blazing reality.
             </p>
@@ -31,10 +31,10 @@ const Footer = () => {
 
           {/* Column 2: Quick Links */}
           <div className="space-y-6">
-            <h4 className="font-display text-sm font-bold uppercase tracking-widest text-foreground">
+            <h4 className="font-display text-sm font-bold uppercase tracking-widest text-foreground grid justify-items-center md:justify-items-start">
               Navigation
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-4 grid justify-items-center md:justify-items-start">
               {["Services", "Works", "About", "Contact"].map((item) => (
                 <li key={item}>
                   <a 
@@ -49,11 +49,11 @@ const Footer = () => {
           </div>
 
           {/* Column 3: Contact Details */}
-          <div className="space-y-6">
+          <div className="space-y-6 grid justify-items-center md:justify-items-start">
             <h4 className="font-display text-sm font-bold uppercase tracking-widest text-foreground">
               Get in Touch
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-4 grid justify-items-center md:justify-items-start">
               <li className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin size={18} className="text-flame flex-shrink-0" />
                 <span>Lantic, Carmona, Cavite, Philippines</span>
@@ -66,7 +66,15 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Phone size={18} className="text-flame flex-shrink-0" />
-                <span>+63 9XX XXX XXXX</span>
+                <a href="tel:+639611754592" className="hover:text-flame">
+                  +63 961 175 4592
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-muted-foreground">
+                <Phone size={18} className="text-flame flex-shrink-0" />
+                <a href="tel:+639611754592" className="hover:text-flame">
+                  +63 961 175 4592
+                </a>
               </li>
             </ul>
           </div>
@@ -74,7 +82,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} NEXFLARE. All rights reserved.
           </p>

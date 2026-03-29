@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Check } from "lucide-react";
 import { projects } from "@/data/projects";
@@ -10,12 +10,20 @@ const WorkDetail = () => {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
 
+  const location = useLocation();
+
+  const origin = location.state?.from || "works";
+  const backTo = origin === "works" ? "/works" : "/#works";
+
   if (!project) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="font-display text-2xl font-bold mb-4">Project not found</h1>
-          <Link to="/" className="text-flame hover:underline">← Back to home</Link>
+          <Link to={backTo} className="text-flame hover:underline">
+            <ArrowLeft size={16} />
+            {origin === "works" ? "Back to Works" : "Back to Home"}
+          </Link>
         </div>
       </div>
     );
@@ -36,11 +44,11 @@ const WorkDetail = () => {
       <section className="pt-24">
         <div className="container mx-auto px-6">
           <Link
-            to="/#works"
+            to={backTo}
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-flame transition-colors mb-6 mt-8"
           >
             <ArrowLeft size={16} />
-            Back to Home
+            {origin === "works" ? "Back to Works" : "Back to Home"}
           </Link>
 
           <motion.div

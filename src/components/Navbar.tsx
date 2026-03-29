@@ -58,7 +58,14 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-border bg-background/80"
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        <Link to="/" className="font-display text-2xl font-bold tracking-tight">
+        <Link 
+        to="/" 
+        onClick={() => {
+          if (location.pathname === "/") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }}
+        className="font-display text-2xl font-bold tracking-tight">
           <span className="text-foreground">NEX</span>
           <span className="text-gradient-fire">FLARE</span>
         </Link>
@@ -78,7 +85,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setIsDark(!isDark)}
-            className="p-2 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="p-2 rounded-lg text-muted-foreground hover:text-foreground transition-colors duration-300"
             aria-label="Toggle theme"
           >
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
@@ -97,7 +104,7 @@ const Navbar = () => {
         <div className="flex items-center gap-3 md:hidden">
           <button
             onClick={() => setIsDark(!isDark)}
-            className="p-2 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground transition-colors duration-300"
+            className="p-2 rounded-lg text-muted-foreground hover:text-foreground transition-colors duration-300"
             aria-label="Toggle theme"
           >
             {isDark ? <Sun size={16} /> : <Moon size={16} />}

@@ -78,10 +78,10 @@ const Footer = () => {
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} NEXFLARE. All rights reserved.
           </p>
-          {/* <div className="flex gap-6 text-xs text-muted-foreground">
-            <Link to="/privacy" className="hover:text-flame">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-flame">Terms of Service</Link>
-          </div> */}
+          <div className="flex gap-6 text-xs text-muted-foreground">
+            <Link to="/terms" className="hover:text-flame transition-colors">Terms of Service</Link>
+            <Link to="/faq" className="hover:text-flame transition-colors">FAQ</Link>
+          </div>
         </div>
       </div>
     </footer>

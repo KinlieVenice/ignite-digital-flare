@@ -1,21 +1,38 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import heroBgLight from "@/assets/hero-bg-light.jpg";
+import { useEffect, useState } from "react";
 
 const HeroSection = () => {
+  const [isLight, setIsLight] = useState(
+    document.documentElement.classList.contains("light")
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsLight(document.documentElement.classList.contains("light"));
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src={heroBg}
+          src={isLight ? heroBgLight : heroBg}
           alt=""
           className="w-full h-full object-cover opacity-40"
+          width={1920}
+          height={1080}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
       </div>
 
-      {/* Glow orb */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px] glow-pulse" />
 
       <div className="relative z-10 container mx-auto px-6 text-center">
@@ -78,7 +95,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );

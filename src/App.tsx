@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound.tsx";
 import ServiceDetail from "./pages/ServiceDetail.tsx";
 import WorkDetail from "./pages/WorkDetail.tsx";
 import Works from "./pages/Works.tsx";
+import Terms from "./pages/Terms.tsx";
+import FAQ from "./pages/FAQ.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/works" element={<Works />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/work/:slug" element={<WorkDetail />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

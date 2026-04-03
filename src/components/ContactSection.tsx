@@ -29,7 +29,7 @@ const ContactSection = () => {
           </p>
 
           <a
-            href="mailto:hello@nexflare.dev"
+            href="mailto:hello@nexflare.tech"
             className="group inline-flex items-center gap-3 bg-gradient-fire text-primary-foreground px-8 py-4 rounded-xl font-semibold shadow-fire hover:opacity-90 transition-all"
           >
             Get in Touch

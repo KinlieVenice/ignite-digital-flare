@@ -5,7 +5,7 @@ import { services } from "@/data/services";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
-import ContactSection from "@/components/ContactSection";
+import CTA from "@/components/CTA";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -204,18 +204,7 @@ const ServiceDetail = () => {
             viewport={{ once: true }}
             className="text-center bg-card border border-border rounded-2xl p-12 max-w-3xl mx-auto"
           >
-            <h2 className="font-display text-2xl sm:text-3xl font-bold mb-4">
-              Ready to Ignite?
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-md mx-auto text-sm">
-              Let's talk about your needs. We'll recommend the best solution for your business — no commitment required.
-            </p>
-            <a
-              href="/#contact"
-              className="inline-flex items-center gap-2 bg-gradient-fire text-primary-foreground px-8 py-3 rounded-xl font-semibold text-sm shadow-glow hover:shadow-fire transition-all duration-300"
-            >
-              Get in Touch
-            </a>
+            <CTA />
           </motion.div>
         </div>
       </section>

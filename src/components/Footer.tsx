@@ -14,7 +14,7 @@ const Footer = () => {
               <span className="text-gradient-fire">FLARE</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs text-center md:text-left">
-              Igniting growth through high-performance digital solutions. 
+              Igniting growth through next-level systems. 
               We turn your vision into a blazing reality.
             </p>
             <div className="flex items-center gap-4">
@@ -60,8 +60,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Mail size={18} className="text-flame flex-shrink-0" />
-                <a href="mailto:hello@nexflare.com" className="hover:text-flame">
-                  hello@nexflare.com
+                <a href="mailto:hello@nexflare.tech" className="hover:text-flame">
+                  hello@nexflare.tech
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-muted-foreground">
@@ -72,8 +72,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Phone size={18} className="text-flame flex-shrink-0" />
-                <a href="tel:+639611754592" className="hover:text-flame">
-                  +63 961 175 4592
+                <a href="tel:+639357928171" className="hover:text-flame">
+                  +63 935 792 8171
                 </a>
               </li>
             </ul>

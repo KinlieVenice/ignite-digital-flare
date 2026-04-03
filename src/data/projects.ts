@@ -8,13 +8,12 @@ import nexFoundation from "@/assets/nex-foundation.png";
 import nexQuote from "@/assets/nex-quote.png";
 import nexShowcase from "@/assets/nex-showcase.png";
 import nexAcademy from "@/assets/nex-academy.png";
-import { a } from "vitest/dist/chunks/suite.d.FvehnV49.js";
 
 export const projects = [
   {
     slug: "vilsons",
     title: "Vilsons",
-    industry: "Logistics / Fleet Maintenance",
+    industry: "Logistics",
     tagline: "ERP dashboard for fleet maintenance and contractor management",
     description:
       "A fleet management company needed better oversight of repairs, contractors, and costs. We built a secure ERP system with multi-level approvals, role-based access, and full audit tracking.",
@@ -39,7 +38,7 @@ export const projects = [
   {
     slug: "aldrin-cox-visa",
     title: "Aldrin Cox Visa",
-    industry: "Consulting / Visa Assistance",
+    industry: "Consulting",
     tagline: "Automated inquiry and guidance platform for visa services",
     description:
       "A visa consultancy needed a professional way for Filipinos to request guidance and submit visa inquiries online. We built a platform to capture questions, provide automated responses, and expand their reach in the Philippines.",
@@ -64,7 +63,7 @@ export const projects = [
   {
     slug: "nex-wedding",
     title: "NexWedding",
-    industry: "Events / Wedding Planning",
+    industry: "Events",
     tagline: "Premium RSVP and guest management platform",
     description:
       "A couple needed a centralized, elegant way to manage wedding RSVPs and guest info. We built a mobile-friendly RSVP site with real-time tracking and interactive maps.",
@@ -89,7 +88,7 @@ export const projects = [
   {
     slug: "nex-booking",
     title: "NexBooking",
-    industry: "Resort / Hospitality",
+    industry: "Hospitality",
     tagline: "Premium booking engine for resorts",
     description:
       "A resort needed 24/7 booking capabilities and real-time inventory management. We built a platform to manage rooms, rates, and guest bookings seamlessly.",
@@ -114,7 +113,7 @@ export const projects = [
   {
     slug: "nex-foundation",
     title: "NexFoundation",
-    industry: "Non-Profit / Community",
+    industry: "NonProfit",
     tagline: "Centralized hub for donations and volunteers",
     description:
       "A non-profit needed a professional digital hub to manage donors, volunteers, and impact stories. We built a platform that automates donations, volunteer management, and showcases their community impact.",
@@ -139,7 +138,7 @@ export const projects = [
   {
     slug: "nex-quote",
     title: "NexQuote",
-    industry: "B2B Services / Portfolio",
+    industry: "B2B",
     tagline: "Automated quote and lead management system",
     description:
       "A B2B service provider needed a faster, professional way to deliver quotes and gather requirements. We built a portfolio with a Request a Quote engine and lead tracking CMS.",
@@ -164,7 +163,7 @@ export const projects = [
   {
     slug: "nex-showcase",
     title: "NexShowcase",
-    industry: "Real Estate / Property Management",
+    industry: "RealEstate",
     tagline: "Automated property listings and tour scheduling",
     description:
       "A real estate agency needed a faster way to showcase properties and book viewings. We built a portal for listing management, automated inquiries, and scheduling tours.",
@@ -189,7 +188,7 @@ export const projects = [
   {
     slug: "nex-academy",
     title: "NexAcademy",
-    industry: "Education / School Management",
+    industry: "Education",
     tagline: "Unified digital campus for enrollment and student tracking",
     description:
       "An educational institution needed to digitize enrollment and student management. We built a platform automating admissions, class assignments, and student achievement tracking.",

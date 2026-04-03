@@ -29,7 +29,7 @@ const WorkDetail = () => {
     );
   }
 
-  const Icon = project.icon;
+  const Icon = project.icon as React.ElementType<{ size?: number; className?: string }>;
 
   useEffect(() => {
     window.scrollTo(0, 0);

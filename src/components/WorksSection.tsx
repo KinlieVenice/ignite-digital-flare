@@ -32,7 +32,7 @@ const WorkSection = () => {
 
         <div className="grid sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {projects.slice(0, 4).map((project, i) => {
-            const Icon = project.icon;
+            const Icon = project.icon as React.ElementType<{ size?: number; className?: string }>;
             return (
               <Link key={project.slug} to={`/works/${project.slug}`} state={{ from: 'works-section' }}>
                 <motion.div

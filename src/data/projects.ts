@@ -33,7 +33,7 @@ export const projects = [
     result: "100% audit transparency",
     icon: "Zap",
     image: vilsons,
-    demoUrl: "http://157.230.248.185:8080/",
+    demoUrl: "https://vilsons.nexflare.tech/",
   },
   {
     slug: "aldrin-cox-visa",
@@ -58,7 +58,7 @@ export const projects = [
     result: "Automated and efficient lead management",
     icon: "Zap",
     image: aldrinCoxVisa,
-    demoUrl: "http://157.230.248.185:8090/",
+    demoUrl: "https://aldrincoxvisa.nexflare.tech/",
   },
   {
     slug: "nex-wedding",
@@ -83,7 +83,7 @@ export const projects = [
     result: "100% RSVP accuracy",
     icon: "Gift",
     image: nexWedding,
-    demoUrl: "http://157.230.248.185/nex-wedding/",
+    demoUrl: "https://nexflare.tech/nex-wedding/",
   },
   {
     slug: "nex-booking",
@@ -108,7 +108,7 @@ export const projects = [
     result: "120% increase in bookings",
     icon: "Calendar",
     image: nexBooking,
-    demoUrl: "http://157.230.248.185/nex-booking/",
+    demoUrl: "https://nexflare.tech/nex-booking/",
   },
   {
     slug: "nex-foundation",
@@ -133,7 +133,7 @@ export const projects = [
     result: "55% increase in donations",
     icon: "Heart",
     image: nexFoundation,
-    demoUrl: "http://157.230.248.185/nex-foundation/",
+    demoUrl: "https://nexflare.tech/nex-foundation/",
   },
   {
     slug: "nex-quote",
@@ -158,7 +158,7 @@ export const projects = [
     result: "2x faster quotes",
     icon: "Clipboard",
     image: nexQuote,
-    demoUrl: "http://157.230.248.185/nex-quote/",
+    demoUrl: "https://nexflare.tech/nex-quote/",
   },
   {
     slug: "nex-showcase",
@@ -183,7 +183,7 @@ export const projects = [
     result: "50% increase in bookings",
     icon: "Home",
     image: nexShowcase,
-    demoUrl: "http://157.230.248.185/nex-showcase/",
+    demoUrl: "https://nexflare.tech/nex-showcase/",
   },
   {
     slug: "nex-academy",
@@ -208,6 +208,6 @@ export const projects = [
     result: "70% faster enrollment",
     icon: "BookOpen",
     image: nexAcademy,
-    demoUrl: "http://157.230.248.185/nex-academy/",
+    demoUrl: "https://nexflare.tech/nex-academy/",
   },
 ];

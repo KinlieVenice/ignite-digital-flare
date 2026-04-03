@@ -3,24 +3,26 @@ import { useRef, useState } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
-  {
-    name: "Carlos Rivera",
-    role: "CEO, AutoFlow Logistics",
-    quote:
-      "NEXFLARE didn't just build us a dashboard — they re-engineered how our entire team works. The AI automation alone saved us 40+ hours a week.",
-  },
-  {
-    name: "Maria Santos",
-    role: "Founder, GreenGrid Energy",
-    quote:
-      "From the first call, it was clear they think differently. Our website went from concept to a lead-generating machine in under three weeks.",
-  },
-  {
-    name: "James Tan",
-    role: "CTO, HealthPulse Inc.",
-    quote:
-      "The attention to UX detail was next level. Our patients and staff actually enjoy using the portal now — that's rare in healthcare tech.",
-  },
+  [
+    {
+      name: "Aldrin Cox",
+      role: "Visa Consultant, Aldrin Cox Visa Services",
+      quote:
+        "NEXFLARE was very responsive and took the time to truly understand our story before proposing any design. They did proper research on our services and processes, which really showed in the final output. On top of that, their work on our logo and video editing was excellent.",
+    },
+    {
+      name: "Vilson Cruz",
+      role: "Owner, Vilsons Truck Services",
+      quote:
+        "NEXFLARE always keeps us updated throughout the process. They really understood how our operations work and even at phase 1, they were already thinking about how the system can scale. They constantly suggest better ways to improve our workflow and eliminate bottlenecks.",
+    },
+    {
+      name: "Elena Garcia",
+      role: "Bride, Wedding RSVP Website",
+      quote:
+        "NEXFLARE was incredibly fast to work with and made the whole process hassle-free, which is exactly what a bride needs. They really captured the theme of our wedding perfectly, and the design turned out very aesthetic and elegant.",
+    },
+  ],
 ];
 
 const TestimonialsSection = () => {

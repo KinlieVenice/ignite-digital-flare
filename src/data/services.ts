@@ -19,7 +19,7 @@ export const services = [
     packages: [
       {
         name: "Starter",
-        price: "₱25,000",
+        price: "₱35,000",
         description: "Automation for one key process.",
         features: [
           "1 automated workflow",
@@ -31,7 +31,7 @@ export const services = [
       },
       {
         name: "Growth",
-        price: "₱65,000",
+        price: "₱85,000",
         popular: true,
         description: "Automation across multiple operations.",
         features: [
@@ -39,7 +39,7 @@ export const services = [
           "Advanced chatbot setup",
           "System integrations",
           "Custom dashboard",
-          "3 months support",
+          "6 months support",
           "Priority response",
         ],
       },
@@ -52,7 +52,7 @@ export const services = [
           "Custom AI solutions",
           "Full system integration",
           "Dedicated project manager",
-          "6 months support",
+          "1 year support",
           "On-call support",
         ],
       },
@@ -76,7 +76,7 @@ export const services = [
     packages: [
       {
         name: "MVP",
-        price: "₱45,000",
+        price: "₱50,000",
         description: "Launch a working system quickly.",
         features: [
           "Up to 5 core features",
@@ -84,12 +84,12 @@ export const services = [
           "Responsive design",
           "User login system",
           "Basic database setup",
-          "1 month support",
+          "3 months support",
         ],
       },
       {
         name: "Professional",
-        price: "₱125,000",
+        price: "₱150,000",
         popular: true,
         description: "Full-featured application.",
         features: [
@@ -98,8 +98,8 @@ export const services = [
           "Payment integration",
           "API integrations",
           "Free domain & deployment (1 year)",
-          "Code documentation",
-          "3 months support",
+          "System documentation",
+          "1 year support",
           "Performance optimization",
         ],
       },
@@ -112,7 +112,7 @@ export const services = [
           "Modular system architecture",
           "Free domain & deployment (1 year)",
           "Security and load testing",
-          "6 months support",
+          "1 year support",
           "Dedicated team",
         ],
       },

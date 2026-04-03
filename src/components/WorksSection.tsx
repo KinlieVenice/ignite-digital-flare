@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
+import WorkCard from "./WorkCard";
 
 const WorkSection = () => {
   const ref = useRef(null);
@@ -32,7 +33,6 @@ const WorkSection = () => {
 
         <div className="grid sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {projects.slice(0, 4).map((project, i) => {
-            const Icon = project.icon as React.ElementType<{ size?: number; className?: string }>;
             return (
               <Link key={project.slug} to={`/works/${project.slug}`} state={{ from: 'works-section' }}>
                 <motion.div
@@ -41,48 +41,7 @@ const WorkSection = () => {
                   transition={{ duration: 0.6, delay: 0.15 + i * 0.12 }}
                   className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 cursor-pointer h-full"
                 >
-                  <div className="relative overflow-hidden aspect-[16/10]">
-                    <img
-                      src={project.image}
-                      alt={`${project.title} — ${project.industry}`}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
-
-                    <div className="absolute top-4 flex justify-between w-full px-4 flex-wrap">
-                      <div className="flex items-center gap-1.5 bg-background/80 backdrop-blur-sm border border-border rounded-full px-3 py-1.5">
-                        <Icon size={14} className="text-flame" />
-                        <span className="text-[11px] font-bold text-foreground tracking-wide">
-                          {project.result}
-                        </span>
-                      </div>
-
-                      <div className="">
-                        <span className="text-[11px] font-semibold tracking-wider uppercase text-flame bg-flame/15 backdrop-blur-sm px-3 py-1 rounded-full">
-                          {project.industry}
-                        </span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className="font-display text-lg font-semibold text-foreground mb-1">
-                      {project.title}
-                    </h3>
-                    <p className="text-flame text-sm font-medium mb-3">
-                      {project.tagline}
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
-                      {project.description}
-                    </p>
-
-                    <div className="mt-4 flex items-center text-xs font-medium text-muted-foreground group-hover:text-flame transition-colors duration-300">
-                      View full case study →
-                    </div>
-                  </div>
-
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-fire opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <WorkCard project={project} />
                 </motion.div>
               </Link>
             );

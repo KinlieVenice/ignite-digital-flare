@@ -47,7 +47,7 @@ const faqs = [
   {
     question: "How do we get started?",
     answer:
-      "Simply reach out through our contact form or email us at hello@nexflare.com. We'll schedule a free consultation to understand your needs, then provide a detailed proposal with scope, timeline, and pricing.",
+      "Simply reach out through our contact form or email us at hello@nexflare.tech. We'll schedule a free consultation to understand your needs, then provide a detailed proposal with scope, timeline, and pricing.",
   },
   {
     question: "Do you work with clients outside the Philippines?",

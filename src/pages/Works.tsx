@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import WorkCard from "@/components/WorkCard";
+import CTA from "@/components/CTA";
 
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.industry)))];
 
@@ -108,6 +109,20 @@ const Works = () => {
               No projects found. Try a different search or category.
             </motion.p>
           )}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center bg-card border border-border rounded-2xl p-12 max-w-3xl mx-auto"
+          >
+            <CTA />
+          </motion.div>
         </div>
       </section>
       <Footer />

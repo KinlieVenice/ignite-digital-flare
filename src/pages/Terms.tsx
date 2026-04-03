@@ -121,10 +121,10 @@ const Terms = () => {
                 <p>
                   For questions about these terms, contact us at{" "}
                   <a
-                    href="mailto:hello@nexflare.com"
+                    href="mailto:hello@nexflare.tech"
                     className="text-flame hover:underline"
                   >
-                    hello@nexflare.com
+                    hello@nexflare.tech
                   </a>
                   .
                 </p>

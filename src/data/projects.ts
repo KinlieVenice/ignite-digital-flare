@@ -19,7 +19,7 @@ export const projects = [
     description:
       "A fleet management company needed better oversight of repairs, contractors, and costs. We built a secure ERP system with multi-level approvals, role-based access, and full audit tracking.",
     fullDescription:
-      "NexFix suffered from paper-based operations, verbal approvals, and poor expense tracking. Contractors and finance teams lacked visibility.\n\nWe developed a high-security ERP dashboard with multi-level approval workflows, granular RBAC, and detailed logging. Every repair, expense, and user action is tracked in real-time.\n\nThe platform improved contractor accountability, reduced maintenance overspend, and eliminated unauthorized access incidents.",
+      "Vilsons suffered from paper-based operations, verbal approvals, and poor expense tracking. Contractors and finance teams lacked visibility.\n\nWe developed a high-security ERP dashboard with multi-level approval workflows, granular RBAC, and detailed logging. Every repair, expense, and user action is tracked in real-time.\n\nThe platform improved contractor accountability, reduced maintenance overspend, and eliminated unauthorized access incidents.",
     challenge:
       "Financial leakage, lack of audit trails, and costly downtime due to untracked repairs.",
     solution:
@@ -39,24 +39,24 @@ export const projects = [
   {
     slug: "aldrin-cox-visa",
     title: "Aldrin Cox Visa",
-    industry: "Financial Services",
-    tagline: "Digital visa application platform",
+    industry: "Consulting / Visa Assistance",
+    tagline: "Automated inquiry and guidance platform for visa services",
     description:
-      "A fleet management company needed better oversight of repairs, contractors, and costs. We built a secure ERP system with multi-level approvals, role-based access, and full audit tracking.",
+      "A visa consultancy needed a professional way for Filipinos to request guidance and submit visa inquiries online. We built a platform to capture questions, provide automated responses, and expand their reach in the Philippines.",
     fullDescription:
-      "NexFix suffered from paper-based operations, verbal approvals, and poor expense tracking. Contractors and finance teams lacked visibility.\n\nWe developed a high-security ERP dashboard with multi-level approval workflows, granular RBAC, and detailed logging. Every repair, expense, and user action is tracked in real-time.\n\nThe platform improved contractor accountability, reduced maintenance overspend, and eliminated unauthorized access incidents.",
+      "Aldrin Cox Visa Services helps Filipinos apply for various visas, but inquiries were overwhelming and disorganized through Facebook messages. Many potential clients were unsure or had incomplete questions, making it difficult to manage leads.\n\nWe developed a website with an automated inquiry system that captures visitor questions, provides instant guidance through custom responses, and funnels serious leads directly to the consultancy. This system reduces unnecessary back-and-forth while improving response speed and customer experience.\n\nWith this digital solution, the service can handle more inquiries efficiently, convert more leads, and reach a wider audience in the Philippine market.",
     challenge:
-      "Financial leakage, lack of audit trails, and costly downtime due to untracked repairs.",
+      "Flooded messages from unsure clients via social media, low lead qualification, and limited reach in the Philippines.",
     solution:
-      "ERP system with role-based permissions, automated workflows, and audit logging.",
+      "Website with automated inquiry forms, instant custom responses, and lead qualification to streamline client engagement.",
     results: [
-      "100% audit transparency",
-      "45% faster repair turnaround",
-      "20% reduction in maintenance overspend",
-      "Zero unauthorized access incidents",
-      "3x improved contractor accountability",
+      "Reduced social media message overload",
+      "Automated initial responses for all inquiries",
+      "Higher quality, pre-qualified leads",
+      "Expanded digital reach in the Philippine market",
+      "Improved customer experience and faster guidance",
     ],
-    result: "100% audit transparency",
+    result: "Automated and efficient lead management",
     icon: "Zap",
     image: aldrinCoxVisa,
     demoUrl: "http://157.230.248.185:8090/",

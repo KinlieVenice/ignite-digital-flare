@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
-const testimonials = [
+const testimonials =
   [
     {
       name: "Aldrin Cox",
@@ -22,8 +22,7 @@ const testimonials = [
       quote:
         "NEXFLARE was incredibly fast to work with and made the whole process hassle-free, which is exactly what a bride needs. They really captured the theme of our wedding perfectly, and the design turned out very aesthetic and elegant.",
     },
-  ],
-];
+  ];
 
 const TestimonialsSection = () => {
   const ref = useRef(null);

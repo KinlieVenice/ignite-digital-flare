@@ -31,7 +31,7 @@ const WorkSection = () => {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {projects.map((project, i) => {
+          {projects.slice(0, 4).map((project, i) => {
             const Icon = project.icon;
             return (
               <Link key={project.slug} to={`/works/${project.slug}`} state={{ from: 'works-section' }}>

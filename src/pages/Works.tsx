@@ -2,29 +2,33 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
-import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import WorkCard from "@/components/WorkCard";
 import CTA from "@/components/CTA";
-
-const categories = ["All", ...Array.from(new Set(projects.map((p) => p.industry)))];
+import { useGetWorks } from "@/hooks/useGetWorks";
 
 const Works = () => {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
+  const { works, loading, error } = useGetWorks() as any;
+
+  const categories = useMemo(() => {
+    const categories = works.map((work: any) => work.category).filter(Boolean);
+    return ["All", ...Array.from(new Set(categories)) as string[]];
+  }, [works]);
 
   const filtered = useMemo(() => {
-    return projects.filter((p) => {
+    return works.filter((work: any) => {
       const matchesSearch =
-        p.title.toLowerCase().includes(search.toLowerCase()) ||
-        p.description.toLowerCase().includes(search.toLowerCase()) ||
-        p.industry.toLowerCase().includes(search.toLowerCase());
-      const matchesCategory = activeCategory === "All" || p.industry === activeCategory;
+        work.title.toLowerCase().includes(search.toLowerCase()) ||
+        work.description.toLowerCase().includes(search.toLowerCase()) ||
+        work.category.toLowerCase().includes(search.toLowerCase());
+      const matchesCategory = activeCategory === "All" || work.category === activeCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [search, activeCategory]);
+  }, [search, activeCategory, works]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -44,7 +48,7 @@ const Works = () => {
               Our <span className="text-gradient-fire">Work</span>
             </h1>
             <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm sm:text-base">
-              Real projects, real results. See how we've helped businesses streamline and grow.
+              Real works, real results. See how we've helped businesses streamline and grow.
             </p>
           </motion.div>
 
@@ -58,7 +62,7 @@ const Works = () => {
             <div className="relative">
               <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
               <Input
-                placeholder="Search projects..."
+                placeholder="Search works..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="pl-11 bg-card border-border h-12 rounded-xl text-sm"
@@ -70,11 +74,10 @@ const Works = () => {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 border ${
-                    activeCategory === cat
+                  className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 border ${activeCategory === cat
                       ? "bg-gradient-fire text-primary-foreground border-transparent"
                       : "bg-card text-muted-foreground border-border hover:border-primary/30"
-                  }`}
+                    }`}
                 >
                   {cat}
                 </button>
@@ -82,7 +85,7 @@ const Works = () => {
             </div>
           </motion.div>
 
-          {/* Projects Grid */}
+          {/* Works Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {filtered.map((project, i) => {
               return (
@@ -106,7 +109,7 @@ const Works = () => {
               animate={{ opacity: 1 }}
               className="text-center text-muted-foreground mt-12"
             >
-              No projects found. Try a different search or category.
+              No works found. Try a different search or category.
             </motion.p>
           )}
         </div>

@@ -4,8 +4,8 @@ const WorkCard = ({project} : {project: any}) => {
         <>
             <div className="relative overflow-hidden aspect-[16/10]">
                 <img
-                    src={project.image}
-                    alt={`${project.title} — ${project.industry}`}
+                    src={import.meta.env.VITE_STRAPI_API_URL + project.image.url}
+                    alt={`${project.title} — ${project.category}`}
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card dark:via-card/50 via-card/5 to-transparent" />
@@ -20,7 +20,7 @@ const WorkCard = ({project} : {project: any}) => {
 
                     <div className="">
                         <span className="text-[11px] font-semibold tracking-wider uppercase text-flame bg-flame/15 backdrop-blur-sm px-3 py-1 rounded-full">
-                            {project.industry}
+                            {project.category}
                         </span>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ const WorkCard = ({project} : {project: any}) => {
                     {project.title}
                 </h3>
                 <p className="text-flame text-sm font-medium mb-3">
-                    {project.tagline}
+                    {project.excerpt}
                 </p>
                 <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
                     {project.description}

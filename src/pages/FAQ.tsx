@@ -42,7 +42,7 @@ const faqs = [
   {
     question: "What technologies do you use?",
     answer:
-      "We use modern, industry-standard technologies including React, Node.js, Python, and various AI/ML frameworks. We choose the best tools for each project to ensure performance, scalability, and long-term maintainability.",
+      "We use modern, category-standard technologies including React, Node.js, Python, and various AI/ML frameworks. We choose the best tools for each project to ensure performance, scalability, and long-term maintainability.",
   },
   {
     question: "How do we get started?",

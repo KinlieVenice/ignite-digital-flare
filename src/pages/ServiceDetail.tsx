@@ -56,7 +56,7 @@ const ServiceDetail = () => {
             <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight mb-4  text-center">
               {service.title}
             </h1>
-            <p className="text-flame text-lg font-medium mb-6  text-center">{service.tagline}</p>
+            <p className="text-flame text-lg font-medium mb-6  text-center">{service.excerpt}</p>
             <p className="text-muted-foreground max-w-2xl leading-relaxed text-center">
               {service.description}
             </p>

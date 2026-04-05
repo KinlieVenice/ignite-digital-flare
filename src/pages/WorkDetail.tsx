@@ -60,7 +60,7 @@ const WorkDetail = () => {
           >
             <img
               src={project.image}
-              alt={`${project.title} — ${project.industry}`}
+              alt={`${project.title} — ${project.category}`}
               className="w-full h-80 sm:aspect-[21/9] object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
@@ -69,7 +69,7 @@ const WorkDetail = () => {
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-10">
               <div className="flex sm:items-center gap-3 mb-4 flex-col items-start sm:flex-row">
                 <span className="text-[11px] font-semibold tracking-wider uppercase text-flame bg-flame/15 backdrop-blur-sm px-3 py-1 rounded-full">
-                  {project.industry}
+                  {project.category}
                 </span>
                 <span className="text-[11px] font-bold text-foreground bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
                   <Icon size={12} className="text-flame" />
@@ -79,7 +79,7 @@ const WorkDetail = () => {
               <h1 className="font-display text-3xl sm:text-5xl font-bold tracking-tight">
                 {project.title}
               </h1>
-              <p className="text-flame sm:text-lg font-medium mt-2">{project.tagline}</p>
+              <p className="text-flame sm:text-lg font-medium mt-2">{project.excerpt}</p>
             </div>
           </motion.div>
         </div>

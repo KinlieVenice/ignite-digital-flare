@@ -6,8 +6,6 @@ import WorksSection from "@/components/WorksSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import { Calendar } from "@/components/ui/calendar";
-import { Input } from "@/components/ui/input";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -29,6 +27,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <p>YOW</p>
       <HeroSection />
       <AboutSection />
       <ServicesSection />

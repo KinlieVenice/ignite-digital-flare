@@ -5,7 +5,7 @@ export const services = [
     slug: "ai-integration",
     icon: Bot,
     title: "AI Integration & Automation",
-    tagline: "Reduce manual work. Let systems run automatically.",
+    excerpt: "Reduce manual work. Let systems run automatically.",
     description:
       "AI solutions designed to automate tasks, improve efficiency, and reduce operational workload. Built to help businesses save time and scale faster.",
     features: [
@@ -62,7 +62,7 @@ export const services = [
     slug: "web-applications",
     icon: Code2,
     title: "Web Applications",
-    tagline: "Systems built to support and scale operations.",
+    excerpt: "Systems built to support and scale operations.",
     description:
       "Web applications designed for performance, reliability, and growth. Built for internal tools, dashboards, or customer-facing platforms.",
     features: [
@@ -122,7 +122,7 @@ export const services = [
     slug: "ui-ux-design",
     icon: Palette,
     title: "UI/UX Design",
-    tagline: "Simple, clear, and user-friendly design.",
+    excerpt: "Simple, clear, and user-friendly design.",
     description:
       "Design solutions focused on clarity, usability, and user experience. Interfaces are created to be easy to understand, visually consistent, and effective.",
     features: [
@@ -178,7 +178,7 @@ export const services = [
     slug: "business-websites",
     icon: Globe,
     title: "Business Websites",
-    tagline: "Launch fast. Look professional. Get more clients.",
+    excerpt: "Launch fast. Look professional. Get more clients.",
     description:
       "Modern business websites designed to build credibility and attract customers. Clean, fast, and built for long-term growth.",
     features: [

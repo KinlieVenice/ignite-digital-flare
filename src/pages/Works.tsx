@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import WorkCard from "@/components/WorkCard";
 import CTA from "@/components/CTA";
 
-const categories = ["All", ...Array.from(new Set(projects.map((p) => p.industry)))];
+const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
 const Works = () => {
   const [search, setSearch] = useState("");
@@ -20,8 +20,8 @@ const Works = () => {
       const matchesSearch =
         p.title.toLowerCase().includes(search.toLowerCase()) ||
         p.description.toLowerCase().includes(search.toLowerCase()) ||
-        p.industry.toLowerCase().includes(search.toLowerCase());
-      const matchesCategory = activeCategory === "All" || p.industry === activeCategory;
+        p.category.toLowerCase().includes(search.toLowerCase());
+      const matchesCategory = activeCategory === "All" || p.category === activeCategory;
       return matchesSearch && matchesCategory;
     });
   }, [search, activeCategory]);

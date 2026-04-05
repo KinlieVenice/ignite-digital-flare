@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_packages",
+  "info": {
+    "displayName": "Package"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "description": {
+      "type": "text"
+    },
+    "features": {
+      "type": "component",
+      "component": "shared.feature",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

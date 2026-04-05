@@ -1,11 +1,11 @@
 {
-  "collectionName": "components_shared_results",
+  "collectionName": "components_shared_features",
   "info": {
-    "displayName": "Result"
+    "displayName": "Feature"
   },
   "options": {},
   "attributes": {
-    "result": {
+    "feature": {
       "type": "string"
     }
   },

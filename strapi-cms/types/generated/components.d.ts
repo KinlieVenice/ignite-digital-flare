@@ -1,5 +1,15 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedFeature extends Struct.ComponentSchema {
+  collectionName: 'components_shared_features';
+  info: {
+    displayName: 'Feature';
+  };
+  attributes: {
+    feature: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -8,6 +18,19 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
   attributes: {
     file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
+export interface SharedPackage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_packages';
+  info: {
+    displayName: 'Package';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    features: Schema.Attribute.Component<'shared.feature', true>;
+    name: Schema.Attribute.String;
+    price: Schema.Attribute.Decimal;
   };
 }
 
@@ -26,7 +49,7 @@ export interface SharedQuote extends Struct.ComponentSchema {
 export interface SharedResults extends Struct.ComponentSchema {
   collectionName: 'components_shared_results';
   info: {
-    displayName: 'Results';
+    displayName: 'Result';
   };
   attributes: {
     result: Schema.Attribute.String;
@@ -75,7 +98,9 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.feature': SharedFeature;
       'shared.media': SharedMedia;
+      'shared.package': SharedPackage;
       'shared.quote': SharedQuote;
       'shared.results': SharedResults;
       'shared.rich-text': SharedRichText;

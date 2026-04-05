@@ -22,7 +22,7 @@ jobs:
       env:
         SUDO_PASSWORD: ${{ secrets.SUDO_PASSWORD }}
       run: |
-        ssh -o StrictHostKeyChecking=no jhoriz@157.230.248.185 << 'EOF'
+        ssh -t -o StrictHostKeyChecking=no jhoriz@157.230.248.185 << 'EOF'
         cd ~/nexflare/frontend/
         git pull origin main
         echo $SUDO_PASSWORD | sudo -S docker compose up -d --build

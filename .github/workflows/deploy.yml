@@ -1,37 +1,30 @@
-name: Deploy Nexflare
+name: Deploy Frontend
 
 on:
   push:
     branches:
-      - main  # Run this workflow on push to main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout the repo
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repo
+      uses: actions/checkout@v3
 
-      # 2. Set up SSH agent
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+    - name: Set up SSH key
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.GITHUB_ACTION_KEY }}
 
-      # 3. Add server to known_hosts to avoid prompt
-      - name: Add server to known_hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H 157.230.248.185 >> ~/.ssh/known_hosts
-
-      # 4. Deploy via SSH
-      - name: Deploy to server
-        run: |
-          ssh -o StrictHostKeyChecking=no jhoriz@157.230.248.185 << 'EOF'
-            cd ~/nexflare/frontend/
-            git pull origin main
-            sudo docker compose up -d --build
-            sudo systemctl restart nginx
-          EOF
+    - name: Deploy via SSH
+      env:
+        SUDO_PASSWORD: ${{ secrets.SUDO_PASSWORD }}
+      run: |
+        ssh -o StrictHostKeyChecking=no jhoriz@157.230.248.185 << 'EOF'
+        cd ~/nexflare/frontend/
+        git pull origin main
+        echo $SUDO_PASSWORD | sudo -S docker compose up -d --build
+        echo $SUDO_PASSWORD | sudo -S systemctl restart nginx
+        EOF

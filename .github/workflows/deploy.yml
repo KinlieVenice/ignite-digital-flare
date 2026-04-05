@@ -1,4 +1,4 @@
-name: Deploy Nexflare Website
+name: Deploy Nexflare
 
 on:
   push:

@@ -1,10 +1,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { works } from "@/data/works";
 import WorkCard from "./WorkCard";
+import useGetAllWorks from "@/hooks/useGetAllWorks";
 
 const WorkSection = () => {
+  const { works, loading, error } = useGetAllWorks() as any;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 

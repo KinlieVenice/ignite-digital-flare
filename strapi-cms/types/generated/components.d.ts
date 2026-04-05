@@ -26,7 +26,7 @@ export interface SharedQuote extends Struct.ComponentSchema {
 export interface SharedResults extends Struct.ComponentSchema {
   collectionName: 'components_shared_results';
   info: {
-    displayName: 'results';
+    displayName: 'Results';
   };
   attributes: {
     result: Schema.Attribute.String;

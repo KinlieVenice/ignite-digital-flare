@@ -1,21 +1,30 @@
 import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Check } from "lucide-react";
-import { works } from "@/data/works";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 import CTA from "@/components/CTA";
+import useGetWork from "@/hooks/useGetWork";
+import ReactMarkdown from 'react-markdown';
 
 const WorkDetail = () => {
   const { slug } = useParams();
-  const work = works.find((w) => w.slug === slug);
+  const { work, loading, error } = useGetWork(slug);
 
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   const origin = location.state?.from || "works";
   const backTo = origin === "works" ? "/works" : "/#works";
 
+  if (loading) {
+    return <></>
+  }
+  
   if (!work) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -31,10 +40,6 @@ const WorkDetail = () => {
   }
 
   const Icon = work.icon as React.ElementType<{ size?: number; className?: string }>;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
   
 
   return (
@@ -59,7 +64,7 @@ const WorkDetail = () => {
             className="relative rounded-2xl overflow-hidden border border-border"
           >
             <img
-              src={work.image}
+              src={import.meta.env.VITE_STRAPI_API_URL + work.image.url}
               alt={`${work.title} — ${work.category}`}
               className="w-full h-80 sm:aspect-[21/9] object-cover object-center"
             />
@@ -99,9 +104,7 @@ const WorkDetail = () => {
             >
               <h2 className="font-display text-2xl font-bold mb-6">The Story</h2>
               <div className="text-muted-foreground leading-relaxed space-y-4">
-                {work.fullDescription.split("\n\n").map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
+                <ReactMarkdown>{work.fullDescription}</ReactMarkdown>
               </div>
             </motion.div>
 
@@ -139,10 +142,10 @@ const WorkDetail = () => {
                   Key Results
                 </h3>
                 <ul className="space-y-3">
-                  {work.results.map((result) => (
-                    <li key={result} className="flex items-start gap-2 text-sm">
+                  {work.results.map((result: { id: string; result: string }) => (
+                    <li key={result.id} className="flex items-start gap-2 text-sm">
                       <Check size={14} className="text-flame mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground/80">{result}</span>
+                      <span className="text-foreground/80">{result.result}</span>
                     </li>
                   ))}
                 </ul>

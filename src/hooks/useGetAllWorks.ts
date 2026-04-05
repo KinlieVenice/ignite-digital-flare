@@ -3,7 +3,7 @@ import { getAllWorks } from "@/services/api";
 
 type Work = any;
 
-export const useGetWorks = () => {
+const useGetAllWorks = () => {
   const [works, setWorks] = useState<Work[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
@@ -32,3 +32,5 @@ export const useGetWorks = () => {
 
   return { works, loading, error };
 };
+
+export default useGetAllWorks;

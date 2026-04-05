@@ -7,12 +7,12 @@ import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import WorkCard from "@/components/WorkCard";
 import CTA from "@/components/CTA";
-import { useGetWorks } from "@/hooks/useGetWorks";
+import useGetAllWorks from "@/hooks/useGetAllWorks";
 
 const Works = () => {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
-  const { works, loading, error } = useGetWorks() as any;
+  const { works, loading, error } = useGetAllWorks() as any;
 
   const categories = useMemo(() => {
     const categories = works.map((work: any) => work.category).filter(Boolean);

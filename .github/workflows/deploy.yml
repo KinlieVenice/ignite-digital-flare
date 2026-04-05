@@ -1,31 +1,36 @@
-name: Auto Deploy Nexflare Frontend
+name: Deploy Nexflare
 
-# Trigger every time you push to main
 on:
   push:
     branches:
-      - main
+      - main  # Run this workflow on push to main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout your repo
-      - name: Checkout code
+      # 1. Checkout the repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Set up your SSH key
+      # 2. Set up SSH agent
       - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.8.1
+        uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
-      # 3️⃣ Run deployment commands via SSH
+      # 3. Add server to known_hosts to avoid prompt
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H 157.230.248.185 >> ~/.ssh/known_hosts
+
+      # 4. Deploy via SSH
       - name: Deploy to server
         run: |
           ssh -o StrictHostKeyChecking=no jhoriz@157.230.248.185 << 'EOF'
-            cd ./nexflare/frontend/
+            cd ~/nexflare/frontend/
             git pull origin main
             sudo docker compose up -d --build
             sudo systemctl restart nginx

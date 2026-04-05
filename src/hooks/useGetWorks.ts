@@ -12,8 +12,13 @@ export const useGetWorks = () => {
     const fetchAllWorks = async () => {
       try {
         const response = await getAllWorks();
-        console.log("Fetched works:", response);
-        setWorks(response.data);
+  
+        if (response.data) {
+          console.log("Fetched works:", response);
+          setWorks(response.data);
+        } else {
+          console.warn("No works data found in response:", response);
+        }
       } catch (err) {
         console.error("Error fetching works:", err);
         setError(err);

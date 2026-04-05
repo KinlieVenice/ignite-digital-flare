@@ -48,7 +48,7 @@ const Works = () => {
               Our <span className="text-gradient-fire">Work</span>
             </h1>
             <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm sm:text-base">
-              Real works, real results. See how we've helped businesses streamline and grow.
+              Real projects, real results. See how we've helped businesses streamline and grow.
             </p>
           </motion.div>
 

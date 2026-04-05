@@ -12,7 +12,7 @@ import nexAcademy from "@/assets/nex-academy.png";
 export const projects = [
   {
     slug: "vilsons",
-    title: "Vilsons",
+    title: "Vilsonsssssss",
     industry: "Logistics",
     tagline: "ERP dashboard for fleet maintenance and contractor management",
     description:

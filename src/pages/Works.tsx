@@ -48,7 +48,7 @@ const Works = () => {
               Our <span className="text-gradient-fire">Work</span>
             </h1>
             <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm sm:text-base">
-              Real projects, real results. See how we've helped businesses streamline and grow.
+              Real works, real results. See how we've helped businesses streamline and grow.
             </p>
           </motion.div>
 
@@ -87,16 +87,16 @@ const Works = () => {
 
           {/* Works Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {filtered.map((project, i) => {
+            {filtered.map((work: any, i: number) => {
               return (
-                <Link key={project.slug} to={`/works/${project.slug}`} state={{ from: 'works' }}>
+                <Link key={work.slug} to={`/works/${work.slug}`} state={{ from: 'works' }}>
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
                     className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 cursor-pointer h-full"
                   >
-                    <WorkCard project={project} />
+                    <WorkCard work={work} />
                   </motion.div>
                 </Link>
               );

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { getAllWorks } from "@/services/api";
 
-type Project = any;
+type Work = any;
 
 export const useGetWorks = () => {
-  const [works, setWorks] = useState<Project[]>([]);
+  const [works, setWorks] = useState<Work[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
 

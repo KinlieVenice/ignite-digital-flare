@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { projects } from "@/data/projects";
+import { works } from "@/data/works";
 import WorkCard from "./WorkCard";
 
 const WorkSection = () => {
@@ -32,16 +32,16 @@ const WorkSection = () => {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {projects.slice(0, 4).map((project, i) => {
+          {works.slice(0, 4).map((work: any, i: number) => {
             return (
-              <Link key={project.slug} to={`/works/${project.slug}`} state={{ from: 'works-section' }}>
+              <Link key={work.slug} to={`/works/${work.slug}`} state={{ from: 'works-section' }}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.15 + i * 0.12 }}
                   className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 cursor-pointer h-full"
                 >
-                  <WorkCard project={project} />
+                  <WorkCard work={work} />
                 </motion.div>
               </Link>
             );
@@ -58,7 +58,7 @@ const WorkSection = () => {
             to="/works"
             className="inline-flex items-center gap-2 bg-card border border-border px-8 py-3 rounded-xl text-sm font-semibold text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-300"
           >
-            See More Projects →
+            See More Works →
           </Link>
         </motion.div>
       </div>

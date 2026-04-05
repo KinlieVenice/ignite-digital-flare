@@ -1,5 +1,6 @@
-name: Deploy Nexflare Website
+name: Auto Deploy Nexflare Frontend
 
+# Trigger every time you push to main
 on:
   push:
     branches:
@@ -10,14 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      # 1️⃣ Checkout your repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Start SSH agent
-        uses: webfactory/ssh-agent@v0.7.0
+      # 2️⃣ Set up your SSH key
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.1
         with:
           ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
+      # 3️⃣ Run deployment commands via SSH
       - name: Deploy to server
         run: |
           ssh -o StrictHostKeyChecking=no jhoriz@157.230.248.185 << 'EOF'

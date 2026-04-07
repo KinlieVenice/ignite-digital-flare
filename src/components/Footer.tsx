@@ -26,8 +26,6 @@ const Footer = () => {
               >
                 <Facebook size={18} />
               </a>
-            </div>
-            <div className="flex items-center gap-4">
               <a 
                 href="https://facebook.com/jhorizrodel.aquino" // Replace with your actual link
                 target="_blank" 

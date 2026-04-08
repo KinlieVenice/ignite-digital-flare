@@ -9,8 +9,8 @@ const getAllWorks = async () => {
     return response.data;
 };
 
-const getWorkById = async (id: string) => {
-    const response = await axios.get(`${import.meta.env.VITE_STRAPI_API_URL}/api/works/${id}?populate=*`, {
+const getWorkBySlug = async (slug: string) => {
+    const response = await axios.get(`${import.meta.env.VITE_STRAPI_API_URL}/api/works/${slug}?populate=*`, {
         headers: {
             Authorization: `Bearer ${import.meta.env.VITE_STRAPI_API_TOKEN}`,
         },
@@ -18,4 +18,4 @@ const getWorkById = async (id: string) => {
     return response.data;
 };
 
-export { getAllWorks, getWorkById };
+export { getAllWorks, getWorkBySlug };

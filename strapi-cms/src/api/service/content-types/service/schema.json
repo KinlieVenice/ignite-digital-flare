@@ -19,7 +19,8 @@
       "targetField": "title"
     },
     "icon": {
-      "type": "string"
+      "type": "customField",
+      "customField": "plugin::strapi-lucide-icons.icon"
     },
     "excerpt": {
       "type": "string"
@@ -35,7 +36,8 @@
     "packages": {
       "type": "component",
       "component": "shared.package",
-      "repeatable": true
+      "repeatable": true,
+      "max": 3
     }
   }
 }

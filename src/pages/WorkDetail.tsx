@@ -22,7 +22,7 @@ const WorkDetail = () => {
   const backTo = origin === "works" ? "/works" : "/#works";
 
   if (loading) {
-    return <></>
+    return <p>Loading...</p>
   }
   
   if (!work) {
@@ -37,10 +37,7 @@ const WorkDetail = () => {
         </div>
       </div>
     );
-  }
-
-  const Icon = work.icon as React.ElementType<{ size?: number; className?: string }>;
-  
+  }  
 
   return (
     <div className="min-h-screen bg-background">
@@ -142,7 +139,7 @@ const WorkDetail = () => {
                   Key Results
                 </h3>
                 <ul className="space-y-3">
-                  {work.results.map((result: { id: string; result: string }) => (
+                  {work.results?.map((result: { id: string; result: string }) => (
                     <li key={result.id} className="flex items-start gap-2 text-sm">
                       <Check size={14} className="text-flame mt-0.5 flex-shrink-0" />
                       <span className="text-foreground/80">{result.result}</span>

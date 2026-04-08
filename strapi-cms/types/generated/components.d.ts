@@ -30,6 +30,7 @@ export interface SharedPackage extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     features: Schema.Attribute.Component<'shared.feature', true>;
     name: Schema.Attribute.String;
+    popular: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     price: Schema.Attribute.Decimal;
   };
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllWorks } from "@/services/api";
+import { getAllWorks } from "@/services/api/worksService";
 
 type Work = any;
 

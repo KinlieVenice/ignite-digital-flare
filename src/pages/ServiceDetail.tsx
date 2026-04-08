@@ -6,10 +6,20 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 import CTA from "@/components/CTA";
+import useGetService from "@/hooks/useGetService";
+import { DynamicIcon } from "lucide-react/dynamic";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
-  const service = services.find((s) => s.slug === slug);
+  const { service, loading, error } = useGetService(slug);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
+  if (loading) {
+    return <p>Loading...</p>
+  }
 
   if (!service) {
     return (
@@ -21,12 +31,6 @@ const ServiceDetail = () => {
       </div>
     );
   }
-
-  const Icon = service.icon;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -51,7 +55,7 @@ const ServiceDetail = () => {
             className="grid justify-items-center"
           >
             <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.accent} flex items-center justify-center shadow-glow mb-6`}>
-              <Icon size={28} className="text-primary-foreground" />
+              <DynamicIcon name={service.icon} size={28} className="text-primary-foreground" />
             </div>
             <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight mb-4  text-center">
               {service.title}
@@ -78,9 +82,9 @@ const ServiceDetail = () => {
               What's <span className="text-gradient-fire">Included</span>
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
-              {service.features.map((feature, i) => (
+              {service.features?.map((feature: { id: string; feature: string }, i: number) => (
                 <motion.div
-                  key={feature}
+                  key={feature.id}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -90,7 +94,7 @@ const ServiceDetail = () => {
                   <div className="w-5 h-5 rounded-full bg-flame/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Check size={12} className="text-flame" />
                   </div>
-                  <span className="text-sm text-foreground">{feature}</span>
+                  <span className="text-sm text-foreground">{feature.feature}</span>
                 </motion.div>
               ))}
             </div>
@@ -121,9 +125,9 @@ const ServiceDetail = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {service.packages.map((pkg, i) => (
+            {service.packages?.map((pkg: any, i: number) => (
               <motion.div
-                key={pkg.name}
+                key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -146,7 +150,7 @@ const ServiceDetail = () => {
                   <h3 className="font-display text-lg font-semibold mb-2">{pkg.name}</h3>
                   <div className="flex items-baseline gap-1 mb-3">
                     <span className="font-display text-3xl font-bold text-gradient-fire">
-                      {pkg.price}
+                      ₱{pkg.price}
                     </span>
                     {pkg.price !== "Custom" && (
                       <span className="text-xs text-muted-foreground">one-time</span>
@@ -158,10 +162,10 @@ const ServiceDetail = () => {
                 </div>
 
                 <ul className="space-y-3 mb-8">
-                  {pkg.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm">
+                  {pkg.features?.map((feature: { id: string; feature: string }) => (
+                    <li key={feature.id} className="flex items-start gap-2 text-sm">
                       <Check size={14} className="text-flame mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground/80">{feature}</span>
+                      <span className="text-foreground/80">{feature.feature}</span>
                     </li>
                   ))}
                 </ul>

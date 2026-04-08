@@ -8,6 +8,10 @@
     "name": {
       "type": "string"
     },
+    "popular": {
+      "type": "boolean",
+      "default": false
+    },
     "price": {
       "type": "decimal"
     },

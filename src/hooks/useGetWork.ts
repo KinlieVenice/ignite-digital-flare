@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { getWorkById } from "@/services/api";
+import { getWorkBySlug } from "@/services/api/worksService";
 
 type Work = any;
 
-const useGetWork = (id: string) => {
+const useGetWork = (slug: string) => {
   const [work, setWork] = useState<Work | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
@@ -11,7 +11,7 @@ const useGetWork = (id: string) => {
   useEffect(() => {
     const fetchWork = async () => {
       try {
-        const response = await getWorkById(id);
+        const response = await getWorkBySlug(slug);
 
         if (response.data) {
           console.log("Fetched work:", response);
@@ -28,7 +28,7 @@ const useGetWork = (id: string) => {
     };
 
     fetchWork();
-  }, [id]);
+  }, [slug]);
 
   return { work, loading, error };
 };

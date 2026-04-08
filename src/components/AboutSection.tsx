@@ -2,28 +2,31 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Cpu, Layers, Target } from "lucide-react";
+import useGetAllPillars from "@/hooks/useGetAllAreas";
+import { DynamicIcon } from "lucide-react/dynamic";
 
-const pillars = [
-  {
-    icon: Cpu,
-    title: "AI-First Thinking",
-    desc: "We integrate intelligent systems that reduce manual work and optimize operations.",
-  },
-  {
-    icon: Layers,
-    title: "Scalable Architecture",
-    desc: "Every solution is built for performance, growth, and minimal maintenance.",
-  },
-  {
-    icon: Target,
-    title: "Automation at Core",
-    desc: "Eliminate repetitive processes. Build systems that work for you.",
-  },
-];
+// const pillars = [
+//   {
+//     icon: Cpu,
+//     title: "AI-First Thinking",
+//     desc: "We integrate intelligent systems that reduce manual work and optimize operations.",
+//   },
+//   {
+//     icon: Layers,
+//     title: "Scalable Architecture",
+//     desc: "Every solution is built for performance, growth, and minimal maintenance.",
+//   },
+//   {
+//     icon: Target,
+//     title: "Automation at Core",
+//     desc: "Eliminate repetitive processes. Build systems that work for you.",
+//   },
+// ];
 
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { pillars, loading, error } = useGetAllPillars() as any;
 
   return (
     <section id="about" className="py-32 relative">
@@ -50,7 +53,7 @@ const AboutSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {pillars.map((pillar, i) => (
+          {pillars.map((pillar: { title: string; description: string; icon: any }, i: number) => (
             <motion.div
               key={pillar.title}
               initial={{ opacity: 0, y: 30 }}
@@ -59,13 +62,13 @@ const AboutSection = () => {
               className="group relative bg-card border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-500"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-fire flex items-center justify-center mb-5 shadow-glow group-hover:shadow-fire transition-shadow duration-500">
-                <pillar.icon size={22} className="text-primary-foreground" />
+                <DynamicIcon name={pillar.icon} size={22} className="text-primary-foreground" />
               </div>
               <h3 className="font-display text-lg font-semibold mb-2">
                 {pillar.title}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                {pillar.desc}
+                {pillar.description}
               </p>
             </motion.div>
           ))}

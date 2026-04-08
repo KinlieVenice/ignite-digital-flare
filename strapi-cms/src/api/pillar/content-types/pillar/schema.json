@@ -15,7 +15,8 @@
       "type": "string"
     },
     "icon": {
-      "type": "string"
+      "type": "customField",
+      "customField": "plugin::strapi-lucide-icons.icon"
     },
     "description": {
       "type": "text"

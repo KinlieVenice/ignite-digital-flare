@@ -1,41 +1,51 @@
 import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Check } from "lucide-react";
-import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 import CTA from "@/components/CTA";
+import useGetWork from "@/hooks/useGetWork";
+import ReactMarkdown from 'react-markdown';
+import WorkDetailSkeleton from "@/components/skeletons/WorkDetailSkeleton";
+import Loader from "@/components/Loader";
 
 const WorkDetail = () => {
   const { slug } = useParams();
-  const project = projects.find((p) => p.slug === slug);
+  const { work, loading, error } = useGetWork(slug);
 
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   const origin = location.state?.from || "works";
   const backTo = origin === "works" ? "/works" : "/#works";
 
-  if (!project) {
+  if (loading) {
+    return (
+      <>
+        <Navbar />
+        {/* <WorkDetailSkeleton /> */}
+        <Loader className="absolute inset-0" />
+      </>
+    );
+  }
+  
+  if (!work) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <h1 className="font-display text-2xl font-bold mb-4">Project not found</h1>
-          <Link to={backTo} className="text-flame hover:underline">
+          <h1 className="font-display text-2xl font-bold mb-4">Work not found</h1>
+          <Link to={backTo} className="text-flame hover:underline flex items-center gap-1 justify-center">
             <ArrowLeft size={16} />
             {origin === "works" ? "Back to Works" : "Back to Home"}
           </Link>
         </div>
       </div>
     );
-  }
-
-  const Icon = project.icon as React.ElementType<{ size?: number; className?: string }>;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
-  
+  }  
 
   return (
     <div className="min-h-screen bg-background">
@@ -59,8 +69,8 @@ const WorkDetail = () => {
             className="relative rounded-2xl overflow-hidden border border-border"
           >
             <img
-              src={project.image}
-              alt={`${project.title} — ${project.category}`}
+              src={import.meta.env.VITE_STRAPI_API_URL + work.image.url}
+              alt={`${work.title} — ${work.category}`}
               className="w-full h-80 sm:aspect-[21/9] object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
@@ -69,17 +79,17 @@ const WorkDetail = () => {
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-10">
               <div className="flex sm:items-center gap-3 mb-4 flex-col items-start sm:flex-row">
                 <span className="text-[11px] font-semibold tracking-wider uppercase text-flame bg-flame/15 backdrop-blur-sm px-3 py-1 rounded-full">
-                  {project.category}
+                  {work.category}
                 </span>
                 <span className="text-[11px] font-bold text-foreground bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
-                  <Icon size={12} className="text-flame" />
-                  {project.result}
+                  {/* <Icon size={12} className="text-flame" /> */}
+                  {work.result}
                 </span>
               </div>
               <h1 className="font-display text-3xl sm:text-5xl font-bold tracking-tight">
-                {project.title}
+                {work.title}
               </h1>
-              <p className="text-flame sm:text-lg font-medium mt-2">{project.excerpt}</p>
+              <p className="text-flame sm:text-lg font-medium mt-2">{work.excerpt}</p>
             </div>
           </motion.div>
         </div>
@@ -99,9 +109,7 @@ const WorkDetail = () => {
             >
               <h2 className="font-display text-2xl font-bold mb-6">The Story</h2>
               <div className="text-muted-foreground leading-relaxed space-y-4">
-                {project.fullDescription.split("\n\n").map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
+                <ReactMarkdown>{work.fullDescription}</ReactMarkdown>
               </div>
             </motion.div>
 
@@ -119,7 +127,7 @@ const WorkDetail = () => {
                   The Challenge
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  {project.challenge}
+                  {work.challenge}
                 </p>
               </div>
 
@@ -129,7 +137,7 @@ const WorkDetail = () => {
                   Our Solution
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  {project.solution}
+                  {work.solution}
                 </p>
               </div>
 
@@ -139,10 +147,10 @@ const WorkDetail = () => {
                   Key Results
                 </h3>
                 <ul className="space-y-3">
-                  {project.results.map((result) => (
-                    <li key={result} className="flex items-start gap-2 text-sm">
+                  {work.results?.map((result: { id: string; result: string }) => (
+                    <li key={result.id} className="flex items-start gap-2 text-sm">
                       <Check size={14} className="text-flame mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground/80">{result}</span>
+                      <span className="text-foreground/80">{result.result}</span>
                     </li>
                   ))}
                 </ul>
@@ -150,7 +158,7 @@ const WorkDetail = () => {
 
               {/* Live Demo Button */}
               <a
-                href={project.demoUrl}
+                href={work.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full bg-gradient-fire text-primary-foreground py-4 rounded-xl font-semibold text-sm shadow-glow hover:shadow-fire transition-all duration-300"

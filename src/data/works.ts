@@ -9,7 +9,7 @@ import nexQuote from "@/assets/nex-quote.png";
 import nexShowcase from "@/assets/nex-showcase.png";
 import nexAcademy from "@/assets/nex-academy.png";
 
-export const projects = [
+export const works = [
   {
     slug: "vilsons",
     title: "Vilsons",

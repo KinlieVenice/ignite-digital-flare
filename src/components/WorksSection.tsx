@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import WorkCard from "./WorkCard";
 import useGetAllWorks from "@/hooks/useGetAllWorks";
+import WorkCardSkeleton from "@/components/skeletons/WorkCardSkeleton";
 
 const WorkSection = () => {
   const { works, loading, error } = useGetAllWorks() as any;
@@ -33,7 +34,11 @@ const WorkSection = () => {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {works.length <= 0 ? (
+          {loading ? (
+              // Render 6 skeletons as placeholders
+              Array.from({ length: 4 }).map((_, i) => <WorkCardSkeleton key={i} />)
+          ) :
+          works.length <= 0 ? (
             <p className="text-muted-foreground text-center col-span-2">
               No works available.
             </p>

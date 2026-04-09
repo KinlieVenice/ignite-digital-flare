@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import CTA from "@/components/CTA";
 import useGetWork from "@/hooks/useGetWork";
 import ReactMarkdown from 'react-markdown';
+import WorkDetailSkeleton from "@/components/skeletons/WorkDetailSkeleton";
+import Loader from "@/components/Loader";
 
 const WorkDetail = () => {
   const { slug } = useParams();
@@ -22,7 +24,13 @@ const WorkDetail = () => {
   const backTo = origin === "works" ? "/works" : "/#works";
 
   if (loading) {
-    return <p>Loading...</p>
+    return (
+      <>
+        <Navbar />
+        {/* <WorkDetailSkeleton /> */}
+        <Loader className="absolute inset-0" />
+      </>
+    );
   }
   
   if (!work) {

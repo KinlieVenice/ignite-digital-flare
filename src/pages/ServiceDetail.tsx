@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import CTA from "@/components/CTA";
 import useGetService from "@/hooks/useGetService";
 import { DynamicIcon } from "lucide-react/dynamic";
+import ServiceDetailSkeleton from "@/components/skeletons/ServiceDetailSkeleton";
+import Loader from "@/components/Loader";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -18,7 +20,13 @@ const ServiceDetail = () => {
   }, [slug]);
 
   if (loading) {
-    return <p>Loading...</p>
+    return (
+      <>
+        <Navbar />
+        {/* <ServiceDetailSkeleton /> */}
+        <Loader className="absolute inset-0" />
+      </>
+    );
   }
 
   if (!service) {

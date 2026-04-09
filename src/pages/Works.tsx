@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import WorkCard from "@/components/WorkCard";
 import CTA from "@/components/CTA";
 import useGetAllWorks from "@/hooks/useGetAllWorks";
+import WorkCardSkeleton from "@/components/skeletons/WorkCardSkeleton";
+import Loader from "@/components/Loader";
 
 const Works = () => {
   const [search, setSearch] = useState("");
@@ -75,8 +77,8 @@ const Works = () => {
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
                   className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 border ${activeCategory === cat
-                      ? "bg-gradient-fire text-primary-foreground border-transparent"
-                      : "bg-card text-muted-foreground border-border hover:border-primary/30"
+                    ? "bg-gradient-fire text-primary-foreground border-transparent"
+                    : "bg-card text-muted-foreground border-border hover:border-primary/30"
                     }`}
                 >
                   {cat}
@@ -87,8 +89,12 @@ const Works = () => {
 
           {/* Works Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {filtered.map((work: any, i: number) => {
-              return (
+            {loading ? (
+              // Render 3 skeletons as placeholders
+              // Array.from({ length: 3 }).map((_, i) => <WorkCardSkeleton key={i} />)
+              <Loader />
+            ) : (
+              filtered.map((work: any, i: number) => (
                 <Link key={work.slug} to={`/works/${work.slug}`} state={{ from: 'works' }}>
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -99,11 +105,11 @@ const Works = () => {
                     <WorkCard work={work} />
                   </motion.div>
                 </Link>
-              );
-            })}
+              ))
+            )}
           </div>
 
-          {filtered.length === 0 && (
+          {!loading && filtered.length === 0 && (
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

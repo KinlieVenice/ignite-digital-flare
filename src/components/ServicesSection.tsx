@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 import useGetAllServices from "@/hooks/useGetAllServices";
+import ServiceCardSkeleton from "@/components/skeletons/ServiceCardSkeleton";
 
 const ServicesSection = () => {
   const { services, loading, error } = useGetAllServices() as any;
@@ -30,7 +31,13 @@ const ServicesSection = () => {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {services.length <= 0 ? (
+          {loading ? (
+            // Show 4 skeletons while loading
+            Array.from({ length: 4 }).map((_, i) => (
+              <ServiceCardSkeleton key={i} />
+            ))
+          ) :
+          services.length <= 0 ? (
             <p className="text-muted-foreground text-center col-span-2">
               No services available.
             </p>

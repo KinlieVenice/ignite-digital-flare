@@ -150,9 +150,9 @@ const ServiceDetail = () => {
                   <h3 className="font-display text-lg font-semibold mb-2">{pkg.name}</h3>
                   <div className="flex items-baseline gap-1 mb-3">
                     <span className="font-display text-3xl font-bold text-gradient-fire">
-                      ₱{pkg.price}
+                      ₱{pkg.price === -1 ? "Custom" : pkg.price.toLocaleString()}
                     </span>
-                    {pkg.price !== "Custom" && (
+                    {pkg.price !== -1 && (
                       <span className="text-xs text-muted-foreground">one-time</span>
                     )}
                   </div>

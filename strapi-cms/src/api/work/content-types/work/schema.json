@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "works",
+  "info": {
+    "singularName": "work",
+    "pluralName": "works",
+    "displayName": "Work"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Logistics",
+        "Consulting",
+        "Wedding",
+        "Education",
+        "Real Estate",
+        "B2B",
+        "Hospitality"
+      ]
+    },
+    "excerpt": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "fullDescription": {
+      "type": "richtext",
+      "required": true
+    },
+    "challenge": {
+      "type": "text"
+    },
+    "solution": {
+      "type": "text"
+    },
+    "result": {
+      "type": "string",
+      "required": true
+    },
+    "results": {
+      "type": "component",
+      "component": "shared.results",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "demoUrl": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

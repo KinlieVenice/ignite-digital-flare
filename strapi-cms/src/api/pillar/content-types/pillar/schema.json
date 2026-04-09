@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pillars",
+  "info": {
+    "singularName": "pillar",
+    "pluralName": "pillars",
+    "displayName": "Pillar"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::strapi-lucide-icons.icon"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

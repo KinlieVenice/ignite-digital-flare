@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { Facebook, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
+import Facebook from "@/assets/facebook.svg";
 
 const Footer = () => {
   return (
     <footer className="border-t border-border pt-20 pb-10 bg-card/30">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 justify-items-center md:grid-cols-3 gap-12 mb-16">
-          
+
           {/* Column 1: Branding & Bio */}
           <div className="space-y-6 grid justify-items-center md:justify-items-start">
             <div className="font-display text-2xl font-bold tracking-tight">
@@ -14,17 +15,23 @@ const Footer = () => {
               <span className="text-gradient-fire">FLARE</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs text-center md:text-left">
-              Igniting growth through next-level systems. 
+              Igniting growth through next-level systems.
               We turn your vision into a blazing reality.
             </p>
             <div className="flex items-center gap-4">
-              <a 
+              <a
                 href="https://facebook.com/yourpage" // Replace with your actual link
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-flame hover:text-white transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center fill-muted-foreground hover:bg-flame hover:fill-white transition-all duration-300"
               >
-                <Facebook size={18} />
+                <svg className="h-[18px] w-[18px]" version="1.1" id="Layer_1" viewBox="-337 273 123.5 256" stroke="currentColor">
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path d="M-260.9,327.8c0-10.3,9.2-14,19.5-14c10.3,0,21.3,3.2,21.3,3.2l6.6-39.2c0,0-14-4.8-47.4-4.8c-20.5,0-32.4,7.8-41.1,19.3 c-8.2,10.9-8.5,28.4-8.5,39.7v25.7H-337V396h26.5v133h49.6V396h39.3l2.9-38.3h-42.2V327.8z"></path>
+                  </g>
+                </svg>
               </a>
             </div>
           </div>
@@ -37,7 +44,7 @@ const Footer = () => {
             <ul className="space-y-4 grid justify-items-center md:justify-items-start">
               {["Services", "Works", "About", "Contact"].map((item) => (
                 <li key={item}>
-                  <a 
+                  <a
                     href={`/#${item.toLowerCase()}`}
                     className="text-sm text-muted-foreground hover:text-flame transition-colors"
                   >

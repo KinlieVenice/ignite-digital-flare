@@ -87,12 +87,34 @@ export default {
           "0%": { transform: "scale(0.95)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
         },
+
+        // For the Fire Spinner
+        fireRotate: {
+          '0%': { transform: 'rotate(0deg) scale(1)' },
+          '50%': { transform: 'rotate(180deg) scale(1.1)' },
+          '100%': { transform: 'rotate(360deg) scale(1)' },
+        },
+        // For the Rising Sparks
+        sparkRise: {
+          '0%': { opacity: '0', transform: 'translateY(10px) scale(0.5)' },
+          '30%': { opacity: '1' },
+          '70%': { opacity: '1' },
+          '100%': { opacity: '0', transform: 'translateY(-30px) scale(1.2)' },
+        },
+        // For the Plasma Ball
+        plasma: {
+          '0%, 100%': { borderRadius: '60% 40% 61% 39% / 41% 63% 37% 59%' },
+          '50%': { borderRadius: '40% 60% 39% 61% / 63% 41% 59% 37%' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out forwards",
         "scale-in": "scale-in 0.4s ease-out forwards",
+        'fire-rotate': 'fireRotate 1.5s linear infinite',
+        'spark-rise': 'sparkRise 2s ease-out infinite',
+        'plasma-flow': 'plasma 4s ease-in-out infinite',
       },
     },
   },

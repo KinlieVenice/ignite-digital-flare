@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_results",
+  "info": {
+    "displayName": "Result"
+  },
+  "options": {},
+  "attributes": {
+    "result": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

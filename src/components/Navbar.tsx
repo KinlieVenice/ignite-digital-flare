@@ -92,8 +92,7 @@ const Navbar = () => {
           </button>
 
           <Link
-            to="/#contact"
-            onClick={() => handleNavClick("/#contact")}
+            to="/contact"
             className="bg-gradient-fire text-primary-foreground px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
           >
             Get Started
@@ -139,8 +138,8 @@ const Navbar = () => {
                 </Link>
               ))}
               <Link
-                to="/#contact"
-                onClick={() => handleNavClick("/#contact")}
+                to="/contact"
+                onClick={() => setIsOpen(false)}
                 className="bg-gradient-fire text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold text-center"
               >
                 Get Started

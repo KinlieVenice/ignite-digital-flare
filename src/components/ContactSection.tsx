@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -28,8 +29,8 @@ const ContactSection = () => {
             intelligent systems, scalable solutions, and automation that works.
           </p>
 
-          <a
-            href="mailto:hello@nexflare.tech"
+          <Link
+            to="/contact"
             className="group inline-flex items-center gap-3 bg-gradient-fire text-primary-foreground px-8 py-4 rounded-xl font-semibold shadow-fire hover:opacity-90 transition-all"
           >
             Get in Touch
@@ -37,7 +38,7 @@ const ContactSection = () => {
               size={18}
               className="group-hover:translate-x-1 transition-transform"
             />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

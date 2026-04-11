@@ -10,6 +10,7 @@ import WorkDetail from "./pages/WorkDetail.tsx";
 import Works from "./pages/Works.tsx";
 import Terms from "./pages/Terms.tsx";
 import FAQ from "./pages/FAQ.tsx";
+import Contact from "./pages/Contact.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/works/:slug" element={<WorkDetail />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

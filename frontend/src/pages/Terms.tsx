@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import useGetTermsOfServices from "@/hooks/useGetTermsOfServices";
+import { useEffect } from "react";
+import formatDate from "@/utils/formatDate";
+
 
 const Terms = () => {
+  const { termsOfServices, loading, error } = useGetTermsOfServices();
+  useEffect(() => {
+    console.log(termsOfServices);
+  }, [termsOfServices]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -17,21 +26,22 @@ const Terms = () => {
               Terms of <span className="text-gradient-fire">Service</span>
             </h1>
             <p className="text-muted-foreground mb-12">
-              Last updated: March 29, 2026
+              Last updated: { formatDate(termsOfServices.updatedAt)}
             </p>
 
             <div className="space-y-10 text-muted-foreground leading-relaxed">
-              <section>
-                <h2 className="font-display text-xl font-semibold text-foreground mb-3">
-                  1. Agreement to Terms
-                </h2>
-                <p>
-                  By accessing or using NEXFLARE's services, website, or any
-                  related platforms, you agree to be bound by these Terms of
-                  Service. If you do not agree, please do not use our services.
-                </p>
-              </section>
+              {termsOfServices?.termsOfServices?.map(
+                (term: any, index: number) => (
+                  <section>
+                    <h2 className="font-display text-xl font-semibold text-foreground mb-3">
+                      {index + 1}. {term.serviceTerm}
+                    </h2>
+                    <p>{term.description}</p>
+                  </section>
+                ),
+              )}
 
+              {/* 
               <section>
                 <h2 className="font-display text-xl font-semibold text-foreground mb-3">
                   2. Services
@@ -128,7 +138,7 @@ const Terms = () => {
                   </a>
                   .
                 </p>
-              </section>
+              </section> */}
             </div>
           </motion.div>
         </div>

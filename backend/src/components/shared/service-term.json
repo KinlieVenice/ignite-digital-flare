@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_service_terms",
+  "info": {
+    "displayName": "Service Term"
+  },
+  "options": {},
+  "attributes": {
+    "serviceTerm": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

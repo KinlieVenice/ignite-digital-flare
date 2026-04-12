@@ -7,12 +7,20 @@ import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const serviceOptions = [
-  "AI Integration & Automation",
-  "Web & App Development",
-  "Brand & UI/UX Design",
-  "Digital Presence & SEO",
+  { "value": "none", "label": "Select a service (optional)" },
+  { "value": "AI Integration & Automation", "label": "AI Integration & Automation" },
+  { "value": "Web & App Development", "label": "Web & App Development" },
+  { "value": "Brand & UI/UX Design", "label": "Brand & UI/UX Design" },
+  { "value": "Digital Presence & SEO", "label": "Digital Presence & SEO" },
 ];
 
 const Contact = () => {
@@ -22,7 +30,7 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    service: "",
+    service: serviceOptions[0].value, // Set to the default value of the select options
     inquiry: "",
   });
 
@@ -114,28 +122,41 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Phone Number</label>
+                  <label className="text-sm font-medium text-foreground">
+                    Phone Number <span className="text-destructive">*</span>
+                  </label>
                   <Input
                     name="phone"
                     type="tel"
                     value={form.phone}
                     onChange={handleChange}
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="+63 912 345 6789"
+                    required
                   />
                 </div>
+
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground">Service</label>
-                  <select
-                    name="service"
+                  <Select
                     value={form.service}
-                    onChange={handleChange}
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 text-foreground"
+                    onValueChange={(value) => setForm(prev => ({ ...prev, service: value }))}
                   >
-                    <option value="">Select a service (optional)</option>
-                    {serviceOptions.map((s) => (
-                      <option key={s} value={s}>{s}</option>
-                    ))}
-                  </select>
+                    <SelectTrigger className={`w-full bg-background border-input focus:ring-primary ${form.service === "none" ? "text-muted-foreground" : ""}`}>
+                      {/* This will now show serviceOptions[0] on initial load */}
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {serviceOptions.map((s) => (
+                        <SelectItem
+                          key={s.value}
+                          value={s.value}
+                          className={`focus:bg-primary focus:text-primary-foreground ${s.value === "none" ? "text-muted-foreground" : ""}`}
+                        >
+                          {s.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 

@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inquiries",
+  "info": {
+    "singularName": "inquiry",
+    "pluralName": "inquiries",
+    "displayName": "Inquiry"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "private": true
+    },
+    "email": {
+      "type": "string",
+      "private": true
+    },
+    "contact": {
+      "type": "string",
+      "private": true
+    },
+    "service": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text",
+      "private": true
+    },
+    "emailStatus": {
+      "type": "enumeration",
+      "default": "Pending",
+      "enum": [
+        "Pending",
+        "Success",
+        "Failed"
+      ]
+    },
+    "inquiryStatus": {
+      "type": "enumeration",
+      "default": "New",
+      "enum": [
+        "New",
+        "In Progress",
+        "Quoted",
+        "Closed"
+      ]
+    }
+  }
+}

@@ -462,6 +462,46 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInquiryInquiry extends Struct.CollectionTypeSchema {
+  collectionName: 'inquiries';
+  info: {
+    displayName: 'Inquiry';
+    pluralName: 'inquiries';
+    singularName: 'inquiry';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contact: Schema.Attribute.String & Schema.Attribute.Private;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String & Schema.Attribute.Private;
+    emailStatus: Schema.Attribute.Enumeration<
+      ['Pending', 'Success', 'Failed']
+    > &
+      Schema.Attribute.DefaultTo<'Pending'>;
+    inquiryStatus: Schema.Attribute.Enumeration<
+      ['New', 'In Progress', 'Quoted', 'Closed']
+    > &
+      Schema.Attribute.DefaultTo<'New'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::inquiry.inquiry'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text & Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    service: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPillarPillar extends Struct.CollectionTypeSchema {
   collectionName: 'pillars';
   info: {
@@ -1094,6 +1134,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::global.global': ApiGlobalGlobal;
+      'api::inquiry.inquiry': ApiInquiryInquiry;
       'api::pillar.pillar': ApiPillarPillar;
       'api::service.service': ApiServiceService;
       'api::work.work': ApiWorkWork;

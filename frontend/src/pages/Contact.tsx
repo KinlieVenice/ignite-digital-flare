@@ -14,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import axios from "axios";
 
 const serviceOptions = [
   { "value": "none", "label": "Select a service (optional)" },
@@ -29,9 +30,9 @@ const Contact = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    phone: "",
+    contact: "",
     service: serviceOptions[0].value, // Set to the default value of the select options
-    inquiry: "",
+    message: "",
   });
 
   const handleChange = (
@@ -42,16 +43,68 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.inquiry.trim()) {
-      toast({ title: "Please fill in all required fields.", variant: "destructive" });
+
+    // 1. Basic Validation
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      toast({
+        title: "Missing fields",
+        description: "Please fill in all required fields.",
+        variant: "destructive"
+      });
       return;
     }
+
     setIsSubmitting(true);
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 1500));
-    toast({ title: "Inquiry sent!", description: "We'll get back to you within 24 hours." });
-    setForm({ name: "", email: "", phone: "", service: "", inquiry: "" });
-    setIsSubmitting(false);
+
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_STRAPI_API_URL}/api/inquiries`, 
+        {
+          data: {
+            name: form.name,
+            email: form.email,
+            contact: form.contact,
+            service: form.service === "none" ? "" : form.service,
+            message: form.message, 
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_STRAPI_API_TOKEN}`,
+          },
+        }
+      );
+
+      // 3. Success Feedback
+      if (response.status === 200 || response.status === 201) {
+        toast({
+          title: "Inquiry sent!",
+          description: "We'll get back to you as soon as possible."
+        });
+
+        // 4. Reset Form to initial state
+        setForm({
+          name: "",
+          email: "",
+          contact: "",
+          service: "none",
+          message: ""
+        });
+      }
+    } catch (error: any) {
+      console.error("Axios Submission Error:", error);
+
+      // Detailed error message if backend sends one
+      const errorMessage = error.response?.data?.error?.message || "Please try again later.";
+
+      toast({
+        title: "Submission Failed",
+        description: errorMessage,
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -123,12 +176,12 @@ const Contact = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground">
-                    Phone Number <span className="text-destructive">*</span>
+                    Contact Number <span className="text-destructive">*</span>
                   </label>
                   <Input
-                    name="phone"
+                    name="contact"
                     type="tel"
-                    value={form.phone}
+                    value={form.contact}
                     onChange={handleChange}
                     placeholder="+63 912 345 6789"
                     required
@@ -165,8 +218,8 @@ const Contact = () => {
                   Inquiry <span className="text-destructive">*</span>
                 </label>
                 <Textarea
-                  name="inquiry"
-                  value={form.inquiry}
+                  name="message"
+                  value={form.message}
                   onChange={handleChange}
                   placeholder="Tell us about your project, goals, and timeline..."
                   rows={5}

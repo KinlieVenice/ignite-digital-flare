@@ -622,7 +622,37 @@ export interface ApiTermsOfServiceTermsOfService
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    termsOfServices: Schema.Attribute.Component<'shared.service-term', true>;
+    termsOfService: Schema.Attribute.Component<'shared.service-term', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
+  collectionName: 'testimonials';
+  info: {
+    displayName: 'Testimonial';
+    pluralName: 'testimonials';
+    singularName: 'testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    quote: Schema.Attribute.Text;
+    role: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1194,6 +1224,7 @@ declare module '@strapi/strapi' {
       'api::pillar.pillar': ApiPillarPillar;
       'api::service.service': ApiServiceService;
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::work.work': ApiWorkWork;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

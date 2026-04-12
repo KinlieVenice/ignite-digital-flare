@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import useGetAllFaqs from "@/hooks/useGetAllFaqs";
+import Loader from "@/components/Loader";
 
 // const faqs = [
 //   {
@@ -65,6 +66,14 @@ import useGetAllFaqs from "@/hooks/useGetAllFaqs";
 const FAQ = () => {
   const { faqs, loading, error } = useGetAllFaqs();
 
+  if (loading) {
+    return (
+      <>
+        <Navbar />
+        <Loader className="absolute inset-0" />
+      </>
+    );
+  }
   
   return (
     <div className="min-h-screen bg-background">

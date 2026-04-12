@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "termsOfServices": {
+    "termsOfService": {
       "type": "component",
       "component": "shared.service-term",
       "repeatable": true

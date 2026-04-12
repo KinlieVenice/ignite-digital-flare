@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import useGetTermsOfServices from "@/hooks/useGetTermsOfServices";
-import { useEffect } from "react";
+import useGetTermsOfService from "@/hooks/useGetTermsOfService";
 import formatDate from "@/utils/formatDate";
+import Loader from "@/components/Loader";
 
 
-const Terms = () => {
-  const { termsOfServices, loading, error } = useGetTermsOfServices();
-  useEffect(() => {
-    console.log(termsOfServices);
-  }, [termsOfServices]);
+const TermsOfService = () => {
+  const { termsOfService, loading, error } = useGetTermsOfService();
+  
+  if (loading) {
+    return (
+      <>
+        <Navbar />
+        <Loader className="absolute inset-0" />
+      </>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -25,14 +31,16 @@ const Terms = () => {
             <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">
               Terms of <span className="text-gradient-fire">Service</span>
             </h1>
-            <p className="text-muted-foreground mb-12">
-              Last updated: { formatDate(termsOfServices.updatedAt)}
-            </p>
+            {termsOfService?.updatedAt && (
+              <p className="text-muted-foreground mb-12">
+                Last updated: {formatDate(termsOfService.updatedAt)}
+              </p>
+            )}
 
             <div className="space-y-10 text-muted-foreground leading-relaxed">
-              {termsOfServices?.termsOfServices?.map(
+              {termsOfService?.termsOfService?.map(
                 (term: any, index: number) => (
-                  <section>
+                  <section key={term.id}>
                     <h2 className="font-display text-xl font-semibold text-foreground mb-3">
                       {index + 1}. {term.serviceTerm}
                     </h2>
@@ -148,4 +156,4 @@ const Terms = () => {
   );
 };
 
-export default Terms;
+export default TermsOfService;

@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound.tsx";
 import ServiceDetail from "./pages/ServiceDetail.tsx";
 import WorkDetail from "./pages/WorkDetail.tsx";
 import Works from "./pages/Works.tsx";
-import Terms from "./pages/Terms.tsx";
+import TermsOfService from "./pages/TermsOfService.tsx";
 import FAQ from "./pages/FAQ.tsx";
 import Contact from "./pages/Contact.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
@@ -32,7 +32,7 @@ const App = () => (
           <Route path="/works" element={<Works />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/works/:slug" element={<WorkDetail />} />
-          <Route path="/terms" element={<Terms />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

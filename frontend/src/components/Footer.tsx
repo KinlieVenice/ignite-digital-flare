@@ -94,7 +94,7 @@ const Footer = () => {
             © {new Date().getFullYear()} NEXFLARE. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-muted-foreground">
-            <Link to="/terms" className="hover:text-flame transition-colors">Terms of Service</Link>
+            <Link to="/terms-of-service" className="hover:text-flame transition-colors">Terms of Service</Link>
             <Link to="/faq" className="hover:text-flame transition-colors">FAQ</Link>
           </div>
         </div>

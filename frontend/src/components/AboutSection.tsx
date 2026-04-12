@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import useGetAllPillars from "@/hooks/useGetAllAreas";
+import useGetAllPillars from "@/hooks/useGetAllPillars";
 import PillarCard from "./PillarCard";
 import PillarCardSkeleton from "@/components/skeletons/PillarCardSkeleton";
 

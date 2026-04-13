@@ -38,6 +38,10 @@
       "component": "shared.package",
       "repeatable": true,
       "max": 3
+    },
+    "sortOrder": {
+      "type": "integer",
+      "unique": true
     }
   }
 }

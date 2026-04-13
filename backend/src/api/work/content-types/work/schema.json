@@ -73,6 +73,10 @@
     "demoUrl": {
       "type": "string",
       "required": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "unique": true
     }
   }
 }

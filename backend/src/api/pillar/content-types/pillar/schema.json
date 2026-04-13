@@ -20,6 +20,10 @@
     },
     "description": {
       "type": "text"
+    },
+    "sortOrder": {
+      "type": "integer",
+      "unique": true
     }
   }
 }

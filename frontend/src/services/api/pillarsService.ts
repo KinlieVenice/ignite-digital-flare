@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getAllPillars = async () => {
-    const response = await axios.get(`${import.meta.env.VITE_STRAPI_API_URL}/api/pillars?populate=*`, {
+    const response = await axios.get(`${import.meta.env.VITE_STRAPI_API_URL}/api/pillars?sort=sortOrder:asc&populate=*`, {
         headers: {
             Authorization: `Bearer ${import.meta.env.VITE_STRAPI_API_TOKEN}`,
         },

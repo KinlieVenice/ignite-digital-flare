@@ -16,6 +16,10 @@
     },
     "answer": {
       "type": "text"
+    },
+    "sortOrder": {
+      "type": "integer",
+      "unique": true
     }
   }
 }

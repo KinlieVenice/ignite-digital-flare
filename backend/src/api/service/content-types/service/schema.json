@@ -36,8 +36,7 @@
     "packages": {
       "type": "component",
       "component": "shared.package",
-      "repeatable": true,
-      "max": 3
+      "repeatable": true
     },
     "sortOrder": {
       "type": "integer",
